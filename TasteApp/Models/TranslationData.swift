@@ -7,18 +7,18 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct LanguagesData: Codable {
+// MARK: - Translation
+struct Translation: Codable {
     let data: DataClass
 }
 
 // MARK: - DataClass
 struct DataClass: Codable {
-    let languages: [Language]
+    let translations: [TranslationElement]
 }
 
-// MARK: - Language
-struct Language: Codable {
-    let language: String
+// MARK: - TranslationElement
+struct TranslationElement: Codable {
+    let translatedText: String?
 }
 
