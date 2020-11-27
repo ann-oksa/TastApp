@@ -26,10 +26,20 @@ class ViewController: UIViewController {
 
     
     @IBAction func buttonClicked(_ sender: UIButton) {
-        translateLabel.text = networkManager.translate(text: textField.text!)
+        print("button clicked")
+        networkManager.onCompletion = { translate in
+            print("translate.russian in vc \(translate.russian)")
+            DispatchQueue.main.async {
+                self.translateLabel.text = translate.russian
+            }
+            
         }
+         self.networkManager.translate(text: self.textField.text!)
+
+        
+        
        
     }
     
-
+}
 

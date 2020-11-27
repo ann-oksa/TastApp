@@ -12,7 +12,7 @@ struct Constants {
     let headers = [
         "content-type": "application/x-www-form-urlencoded",
         "accept-encoding": "application/gzip",
-        "x-rapidapi-key": "80c6a3649fmsh42f78d3c4f87910p180259jsn2bf5b117d8a6",
+        "x-rapidapi-key": "501f705f4fmsh22d97b2fab3039bp198dc4jsn9b9caee1e1fe",
         "x-rapidapi-host": "google-translate1.p.rapidapi.com"
     ]
     
