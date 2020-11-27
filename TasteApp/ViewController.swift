@@ -14,31 +14,26 @@ import UIKit
 //
 
 class ViewController: UIViewController {
-
+    
     var networkManager = NetworkManager()
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var translateLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
-
+    
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         print("button clicked")
-        networkManager.onCompletion = { translate in
-            print("translate.russian in vc \(translate.russian)")
+        self.networkManager.translate(text: textField.text!) { translate in
+            print("translate?.russian in vc \(translate?.russian)")
             DispatchQueue.main.async {
-                self.translateLabel.text = translate.russian
+                self.translateLabel.text = translate?.russian
             }
-            
         }
-         self.networkManager.translate(text: self.textField.text!)
-
         
-        
-       
     }
     
 }

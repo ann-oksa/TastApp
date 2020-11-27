@@ -12,9 +12,8 @@ import Foundation
 struct NetworkManager {
     
     var headers = Constants().headers
-    var onCompletion: ((ModelForData) -> Void)?
     
-    func translate(text: String) {
+    func translate(text: String, completionHandler: @escaping (ModelForData?) -> Void ) {
         guard let url = URL(string: "https://google-translate1.p.rapidapi.com/language/translate/v2") else { return }
         
         var result : String?
@@ -36,7 +35,7 @@ struct NetworkManager {
                 
                 if let translation = self.parseJSON(with: data) {
                     print("translation!.russian \(translation.russian), \(NSDate.now)")
-                    self.onCompletion?(translation)
+                    completionHandler(translation)
                 }
             }
         }
