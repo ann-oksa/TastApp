@@ -16,6 +16,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var networkManager = NetworkManager()
+    var transformation = Transformation()
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var translateLabel: UILabel!
@@ -27,10 +28,11 @@ class ViewController: UIViewController {
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         print("button clicked")
+        
         self.networkManager.translate(text: textField.text!) { translate in
-            print("translate?.russian in vc \(translate?.russian)")
+           
             DispatchQueue.main.async {
-                self.translateLabel.text = translate?.russian
+                self.translateLabel.text = self.transformation.transformTranslToLanguage(t: translate!)
             }
         }
         

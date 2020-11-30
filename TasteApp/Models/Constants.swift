@@ -16,7 +16,15 @@ struct Constants {
         "x-rapidapi-host": "google-translate1.p.rapidapi.com"
     ]
     
+    let currentURL = URL(string: "https://google-translate1.p.rapidapi.com/language/translate/v2")
+    
+    
+    func postData(text: String) -> NSMutableData {
+        let postData = NSMutableData(data: "q=\(text)".data(using: String.Encoding.utf8)!)
+        postData.append("&source=en".data(using: String.Encoding.utf8)!)
+        postData.append("&target=ru".data(using: String.Encoding.utf8)!)
+        return postData
+    }
 }
 
-    
-    
+

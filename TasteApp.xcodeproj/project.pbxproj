@@ -15,8 +15,9 @@
 		CABEA8BA2563CEB8005406F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABEA8B82563CEB8005406F2 /* LaunchScreen.storyboard */; };
 		CABEA97D256D6EF2005406F2 /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA97C256D6EF2005406F2 /* TranslationData.swift */; };
 		CABEA980256D7C1B005406F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA97F256D7C1B005406F2 /* NetworkManager.swift */; };
-		CABEA983256D81E3005406F2 /* ModelForData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA982256D81E3005406F2 /* ModelForData.swift */; };
+		CABEA983256D81E3005406F2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA982256D81E3005406F2 /* Language.swift */; };
 		CABEA989256F9F7B005406F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA988256F9F7B005406F2 /* Constants.swift */; };
+		CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA9922574DDCC005406F2 /* Transformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +31,9 @@
 		CABEA8BB2563CEB8005406F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CABEA97C256D6EF2005406F2 /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
 		CABEA97F256D7C1B005406F2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CABEA982256D81E3005406F2 /* ModelForData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForData.swift; sourceTree = "<group>"; };
+		CABEA982256D81E3005406F2 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		CABEA988256F9F7B005406F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CABEA9922574DDCC005406F2 /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,8 @@
 				CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */,
 				CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */,
 				CABEA8B12563CEB4005406F2 /* ViewController.swift */,
+				CABEA97F256D7C1B005406F2 /* NetworkManager.swift */,
+				CABEA9922574DDCC005406F2 /* Transformation.swift */,
 				CABEA985256F9D45005406F2 /* Models */,
 				CABEA8B32563CEB4005406F2 /* Main.storyboard */,
 				CABEA8B62563CEB8005406F2 /* Assets.xcassets */,
@@ -80,8 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				CABEA97C256D6EF2005406F2 /* TranslationData.swift */,
-				CABEA982256D81E3005406F2 /* ModelForData.swift */,
-				CABEA97F256D7C1B005406F2 /* NetworkManager.swift */,
+				CABEA982256D81E3005406F2 /* Language.swift */,
 				CABEA988256F9F7B005406F2 /* Constants.swift */,
 			);
 			path = Models;
@@ -160,9 +163,10 @@
 				CABEA8B22563CEB4005406F2 /* ViewController.swift in Sources */,
 				CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */,
 				CABEA980256D7C1B005406F2 /* NetworkManager.swift in Sources */,
-				CABEA983256D81E3005406F2 /* ModelForData.swift in Sources */,
+				CABEA983256D81E3005406F2 /* Language.swift in Sources */,
 				CABEA989256F9F7B005406F2 /* Constants.swift in Sources */,
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
+				CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */,
 				CABEA97D256D6EF2005406F2 /* TranslationData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

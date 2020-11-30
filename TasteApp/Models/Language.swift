@@ -7,16 +7,13 @@
 //
 import Foundation
 
-struct ModelForData {
+class Language {
  
     let russian: String
-
-
-    init?(translation: Translation) {
-     
-        russian = translation.data.translations.first!.translatedText!
-
+    init(russian: String) {
+        self.russian = russian
     }
+
 
 }
 
