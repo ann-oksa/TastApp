@@ -7,10 +7,17 @@
 
 import Foundation
 
-struct Transformation {
+class Transformation {
     
-    func transformTranslToLanguage(t: Translation) -> String? {
-        let translation = Language(russian: (t.data.translations.first?.translatedText)!).russian
+    let networkManager = NetworkManager()
+   var result = String()
+    
+     func transformTranslToLanguage(text: String) -> String? {
+        self.networkManager.translate(text: text) { t in
+            self.result = (t?.data.translations.first?.translatedText!)!
+        }
+        let translation = Language(russian: result).russian
+       print("transformation \(translation)")
         return translation
      }
 }
