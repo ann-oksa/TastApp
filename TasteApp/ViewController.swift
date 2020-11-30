@@ -28,11 +28,11 @@ class ViewController: UIViewController {
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         print("button clicked")
-                   
-            DispatchQueue.main.async {
-                self.translateLabel.text = self.transformation.transformTranslToLanguage(text: self.textField.text!)
-            }
-        
+        DispatchQueue.main.async {
+            self.translateLabel.text = self.transformation.transformTranslToLanguage(text: self.textField.text ?? "")
+
+        }
+
         
     }
     
