@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Translation
-struct Translation: Codable {
+struct TranslationOfLanguage: Codable {
     let data: DataClass
 }
 

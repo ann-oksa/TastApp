@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct NetworkManager {
+struct GoogleTranslateAPIManager {
     
     var constants = Constants()
     
-    
-    func translate(text: String, completionHandler: @escaping (Translation?) -> Void ) {
+    func translate(text: String, completionHandler: @escaping (TranslationOfLanguage?) -> Void ) {
         
         guard let url = constants.currentURL else { return }
         let postData = constants.postData(text: text)
@@ -28,26 +27,18 @@ struct NetworkManager {
                 print(error)
             } else {
                 guard let data = data else { return }
-                
                 if let translation = self.parseJSON(with: data) {
-                    
                     completionHandler(translation)
                 }
             }
         }
-        
-        print("task resume, \(NSDate.now)")
         task.resume()
-        
     }
     
-    private func parseJSON(with data: Data) -> Translation? {
+    private func parseJSON(with data: Data) -> TranslationOfLanguage? {
         let decoder = JSONDecoder()
-        
         do {
-            let translation = try decoder.decode(Translation.self, from: data)
-            print("translation do try decoder decode \(translation)")
-            
+            let translation = try decoder.decode(TranslationOfLanguage.self, from: data)
             return translation
         } catch let error as NSError {
             print(error.localizedDescription)

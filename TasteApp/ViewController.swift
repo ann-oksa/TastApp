@@ -7,16 +7,12 @@
 
 import UIKit
 
-//я достаю с джейсона дату
-//я сохраняю ее себе в модель
-//я определяю язык, на котором написали
-//я перевожу на второй язык
-//
-
 class ViewController: UIViewController {
     
     
     var transformation = Transformation()
+    
+   
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var translateLabel: UILabel!
@@ -27,14 +23,15 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonClicked(_ sender: UIButton) {
-        print("button clicked")
-        DispatchQueue.main.async {
-            self.translateLabel.text = self.transformation.transformTranslToLanguage(text: self.textField.text ?? "")
-
+    
+        if textField.text == "" {
+            translateLabel.text = "Enter the word please!"
+        } else {
+            self.transformation.transformTranslToLanguage(text: self.textField.text ?? "") { t in
+                self.translateLabel.text = t
+            }
         }
-
         
     }
-    
 }
 

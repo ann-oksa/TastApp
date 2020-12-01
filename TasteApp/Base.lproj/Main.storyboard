@@ -16,40 +16,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-xb-0BZ">
-                                <rect key="frame" x="111" y="294" width="153" height="79"/>
-                                <state key="normal" title="GET"/>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7K-ut-6Bm"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yii-lr-RSl">
-                                <rect key="frame" x="58" y="54" width="259" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-GA-NKT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="667" id="0Nb-kd-pJP"/>
+                                    <constraint firstAttribute="width" constant="375" id="oHl-wV-OYj"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="III-Vi-D58">
+                                <rect key="frame" x="40" y="214" width="294" height="34"/>
+                                <color key="backgroundColor" red="0.788551271" green="0.80763429399999997" blue="0.81961053610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQf-Cd-xc7">
-                                <rect key="frame" x="105" y="201" width="164" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.32988148140000001" green="0.82339849450000002" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.49255748230000002" green="0.51090416429999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkJ-Un-gDS">
+                                <rect key="frame" x="76" y="344" width="129" height="50"/>
+                                <color key="backgroundColor" red="0.68907064200000001" green="0.62454646830000005" blue="0.5568512082" alpha="0.8845515839041096" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                <state key="normal" title="Translate">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mka-lp-L5R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Write down your phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-IE-onS">
+                                <rect key="frame" x="48" y="76" width="279" height="55"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jhK-xb-0BZ" secondAttribute="bottom" constant="294" id="1NS-XT-eED"/>
-                            <constraint firstItem="jhK-xb-0BZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="294" id="CCx-4w-1zG"/>
-                            <constraint firstItem="jhK-xb-0BZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="111" id="QcN-3U-Ugq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jhK-xb-0BZ" secondAttribute="trailing" constant="111" id="pqc-3h-a57"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lmc-GA-NKT" secondAttribute="bottom" id="5kY-Ff-Gax"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="III-Vi-D58" secondAttribute="trailing" constant="41" id="761-MR-cmR"/>
+                            <constraint firstItem="III-Vi-D58" firstAttribute="top" secondItem="Y7A-IE-onS" secondAttribute="bottom" constant="83" id="Cbk-NU-UIc"/>
+                            <constraint firstItem="JkJ-Un-gDS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="F4r-rs-RmU"/>
+                            <constraint firstItem="III-Vi-D58" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="JgK-ap-FkH"/>
+                            <constraint firstItem="lmc-GA-NKT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M8t-Bl-w9c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JkJ-Un-gDS" secondAttribute="trailing" constant="170" id="Olv-Bx-vqe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y7A-IE-onS" secondAttribute="trailing" constant="48" id="Q0l-bW-giF"/>
+                            <constraint firstItem="Y7A-IE-onS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="76" id="TYc-FO-h5d"/>
+                            <constraint firstItem="JkJ-Un-gDS" firstAttribute="top" secondItem="III-Vi-D58" secondAttribute="bottom" constant="96" id="eCp-J9-LZl"/>
+                            <constraint firstItem="Y7A-IE-onS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="giY-cg-B4f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lmc-GA-NKT" secondAttribute="trailing" id="wUl-KK-cWl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="yii-lr-RSl" id="cQM-5d-v4T"/>
-                        <outlet property="translateLabel" destination="bQf-Cd-xc7" id="RRA-P5-pgH"/>
+                        <outlet property="textField" destination="III-Vi-D58" id="uAh-FW-k4L"/>
+                        <outlet property="translateLabel" destination="Y7A-IE-onS" id="26F-oy-6y0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,6 +75,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="wall" width="1824" height="2736"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,21 +9,22 @@ import Foundation
 
 class Transformation {
     
-    let networkManager = NetworkManager()
-   var result = String()
-    var onCompletion: ((String?) -> Void)?
+    let networkManager = GoogleTranslateAPIManager()
+    
+    // ! +
+    // empty textField +
+    // new code to hack google api
+    // brush code
     
     
-    func transformTranslToLanguage(text: String, completionHandler: @escaping (String) -> Void? ) -> String? {
+    func transformTranslToLanguage(text: String, completionHandler: @escaping (String) -> Void? )  {
         self.networkManager.translate(text: text) { t in
-            self.result = (t?.data.translations.first?.translatedText!)!
+            guard let result = t?.data.translations.first?.translatedText else { return }
+            if let translation = Language(russian: result).russian as? String {
+                DispatchQueue.main.async {
+                    completionHandler(translation)
+                }
+            }
         }
-        if let translation = Language(russian: result).russian {
-            self.onCompletion?(translation)
-        }
-       print("transformation \(translation)")
-        
-        print("completionHandler \(onCompletion)")
-        return translation
-     }
+    }
 }
