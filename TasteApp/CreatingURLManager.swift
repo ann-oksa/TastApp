@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct NewTranslateManager {
+struct CreatingURLManager {
     
     enum TargetLanguages: String {
         case russian = "ru"
@@ -26,7 +26,6 @@ struct NewTranslateManager {
             URLQueryItem(name: "sl", value: sourseLang.rawValue),
             URLQueryItem(name: "tl", value: targetLang.rawValue ),
             URLQueryItem(name: "q", value: text)]
-        print(urlComponents.url?.absoluteURL)
         let urlString = urlComponents.url?.absoluteURL
         return urlString
         

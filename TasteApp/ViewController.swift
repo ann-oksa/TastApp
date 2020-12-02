@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var transformation = Transformation()
     
-    var newTM = NewTranslateManager()
+    var newTM = CreatingURLManager()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var textField: UITextField!
@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        newTM.createURLComponents(text: "hello", targetLang: .english, sourseLang: .russian)
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()

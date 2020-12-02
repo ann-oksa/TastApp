@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA6F64ED2576B30E00117799 /* NewTranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* NewTranslateManager.swift */; };
+		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
 		CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */; };
 		CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */; };
 		CABEA8B22563CEB4005406F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA8B12563CEB4005406F2 /* ViewController.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA6F64EC2576B30E00117799 /* NewTranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTranslateManager.swift; sourceTree = "<group>"; };
+		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
 		CABEA8AA2563CEB4005406F2 /* TasteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,9 +73,9 @@
 				CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */,
 				CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */,
 				CABEA8B12563CEB4005406F2 /* ViewController.swift */,
-				CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */,
 				CABEA9922574DDCC005406F2 /* Transformation.swift */,
-				CA6F64EC2576B30E00117799 /* NewTranslateManager.swift */,
+				CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */,
+				CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */,
 				CABEA985256F9D45005406F2 /* Models */,
 				CABEA8B32563CEB4005406F2 /* Main.storyboard */,
 				CABEA8B62563CEB8005406F2 /* Assets.xcassets */,
@@ -175,7 +175,7 @@
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
 				CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */,
 				CABEA97D256D6EF2005406F2 /* TranslationData.swift in Sources */,
-				CA6F64ED2576B30E00117799 /* NewTranslateManager.swift in Sources */,
+				CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
