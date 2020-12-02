@@ -9,20 +9,15 @@ import Foundation
 
 struct GoogleTranslateAPIManager {
     
-    var constants = Constants()
+    
+    var creatingUrl = NewTranslateManager()
     
     func translate(text: String, completionHandler: @escaping (TranslationOfLanguage?) -> Void ) {
-        
-        guard let url = constants.currentURL else { return }
-        let postData = constants.postData(text: text)
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = constants.headers
-        request.httpBody = postData as Data
+        guard let url = creatingUrl.createURLComponents(text: text, targetLang: .english, sourseLang: .russian) else { return }
         
         let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
+        
+        let task = session.dataTask(with: url) { data, response, error in
             if error != nil {
                 print(error)
             } else {
@@ -34,6 +29,7 @@ struct GoogleTranslateAPIManager {
         }
         task.resume()
     }
+    
     
     private func parseJSON(with data: Data) -> TranslationOfLanguage? {
         let decoder = JSONDecoder()

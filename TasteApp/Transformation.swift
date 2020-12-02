@@ -10,13 +10,7 @@ import Foundation
 class Transformation {
     
     let networkManager = GoogleTranslateAPIManager()
-    
-    // ! +
-    // empty textField +
-    // new code to hack google api
-    // brush code
-    
-    
+
     func transformTranslToLanguage(text: String, completionHandler: @escaping (String) -> Void? )  {
         self.networkManager.translate(text: text) { t in
             guard let result = t?.data.translations.first?.translatedText else { return }

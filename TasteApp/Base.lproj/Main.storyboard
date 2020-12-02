@@ -18,10 +18,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-GA-NKT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="0Nb-kd-pJP"/>
-                                    <constraint firstAttribute="width" constant="375" id="oHl-wV-OYj"/>
-                                </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="III-Vi-D58">
                                 <rect key="frame" x="40" y="214" width="294" height="34"/>
@@ -46,6 +42,9 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Rgm-tQ-kNH">
+                                <rect key="frame" x="167" y="152" width="41" height="36"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,17 +53,23 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="III-Vi-D58" secondAttribute="trailing" constant="41" id="761-MR-cmR"/>
                             <constraint firstItem="III-Vi-D58" firstAttribute="top" secondItem="Y7A-IE-onS" secondAttribute="bottom" constant="83" id="Cbk-NU-UIc"/>
                             <constraint firstItem="JkJ-Un-gDS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="F4r-rs-RmU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rgm-tQ-kNH" secondAttribute="trailing" constant="167" id="IP5-ZZ-LCK"/>
                             <constraint firstItem="III-Vi-D58" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="JgK-ap-FkH"/>
                             <constraint firstItem="lmc-GA-NKT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M8t-Bl-w9c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JkJ-Un-gDS" secondAttribute="trailing" constant="170" id="Olv-Bx-vqe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y7A-IE-onS" secondAttribute="trailing" constant="48" id="Q0l-bW-giF"/>
                             <constraint firstItem="Y7A-IE-onS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="76" id="TYc-FO-h5d"/>
+                            <constraint firstItem="lmc-GA-NKT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WUq-rU-Hfo"/>
                             <constraint firstItem="JkJ-Un-gDS" firstAttribute="top" secondItem="III-Vi-D58" secondAttribute="bottom" constant="96" id="eCp-J9-LZl"/>
+                            <constraint firstItem="III-Vi-D58" firstAttribute="top" secondItem="Rgm-tQ-kNH" secondAttribute="bottom" constant="26" id="fki-OU-AIv"/>
                             <constraint firstItem="Y7A-IE-onS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="giY-cg-B4f"/>
+                            <constraint firstItem="Rgm-tQ-kNH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="hfl-Ma-Lu4"/>
+                            <constraint firstItem="Rgm-tQ-kNH" firstAttribute="top" secondItem="Y7A-IE-onS" secondAttribute="bottom" constant="21" id="lIS-Dd-al4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lmc-GA-NKT" secondAttribute="trailing" id="wUl-KK-cWl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Rgm-tQ-kNH" id="12e-t3-rzf"/>
                         <outlet property="textField" destination="III-Vi-D58" id="uAh-FW-k4L"/>
                         <outlet property="translateLabel" destination="Y7A-IE-onS" id="26F-oy-6y0"/>
                     </connections>

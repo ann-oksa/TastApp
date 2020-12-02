@@ -9,6 +9,9 @@ import Foundation
 
 struct Constants {
     
+    
+
+    
     let headers = [
         "content-type": "application/x-www-form-urlencoded",
         "accept-encoding": "application/gzip",
