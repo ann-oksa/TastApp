@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         newTM.createURLComponents(text: "hello", targetLang: .english, sourseLang: .russian)
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
+        activityIndicator.stopAnimating()
     }
     
     
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             return
         }
         activityIndicator.isHidden = false
-        activityIndicator.stopAnimating()
+        activityIndicator.startAnimating()
         self.transformation.transformTranslToLanguage(text: self.textField.text ?? "") { t in
             self.translateLabel.text = t
             
