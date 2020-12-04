@@ -78,6 +78,10 @@
                                     <segment title="Russian"/>
                                     <segment title="English"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qg9-pT-uaL"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your translation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-IE-onS">
                                 <rect key="frame" x="20" y="242" width="374" height="137"/>
@@ -110,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Rgm-tQ-kNH" id="12e-t3-rzf"/>
+                        <outlet property="segmentControl" destination="dIK-Cu-Bz8" id="wxJ-Va-zTF"/>
                         <outlet property="textField" destination="III-Vi-D58" id="uAh-FW-k4L"/>
                         <outlet property="translateLabel" destination="Y7A-IE-onS" id="26F-oy-6y0"/>
                         <segue destination="AhA-3z-r33" kind="show" identifier="toHistoryVC" id="oLC-X2-oPi"/>

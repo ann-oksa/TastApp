@@ -7,13 +7,13 @@
 
 import Foundation
 
+public enum TargetLanguages: String {
+    case russian = "ru"
+    case english = "en"
+    case empty = "empty"
+}
 
 struct CreatingURLManager {
-    
-    enum TargetLanguages: String {
-        case russian = "ru"
-        case english = "en"
-    }
     
     func createURLComponents(text: String, targetLang: TargetLanguages, sourseLang: TargetLanguages) -> URL? {
         

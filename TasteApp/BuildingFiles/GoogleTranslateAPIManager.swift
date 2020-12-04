@@ -9,12 +9,11 @@ import Foundation
 
 struct GoogleTranslateAPIManager {
     
-    
     var createdUrl = CreatingURLManager()
     
-    func translate(text: String, completionHandler: @escaping (Translation?) -> Void ) {
+    func translate(text: String, targetLang: TargetLanguages, sourceLang: TargetLanguages, completionHandler: @escaping (Translation?) -> Void ) {
         
-        guard let url = createdUrl.createURLComponents(text: text, targetLang: .russian, sourseLang: .english) else { return }
+        guard let url = createdUrl.createURLComponents(text: text, targetLang: targetLang, sourseLang: sourceLang) else { return }
         
         let session = URLSession.shared
         
@@ -23,6 +22,7 @@ struct GoogleTranslateAPIManager {
                 completionHandler(nil)
                 return
             }
+            
             do {
                 let responseModel = try JSONDecoder().decode(Translation.self, from: data)
                 completionHandler(responseModel)
@@ -30,9 +30,7 @@ struct GoogleTranslateAPIManager {
             } catch {
                 print("can't find a translation, error: \(error)")
             }
-            
         }
-        
         task.resume()
     }
 }
