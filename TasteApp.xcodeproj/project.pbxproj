@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
+		CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F02577D95700117799 /* HistoryViewController.swift */; };
+		CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F52577DD2800117799 /* TableViewCell.swift */; };
 		CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */; };
 		CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */; };
 		CABEA8B22563CEB4005406F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA8B12563CEB4005406F2 /* ViewController.swift */; };
 		CABEA8B52563CEB4005406F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABEA8B32563CEB4005406F2 /* Main.storyboard */; };
 		CABEA8B72563CEB8005406F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABEA8B62563CEB8005406F2 /* Assets.xcassets */; };
 		CABEA8BA2563CEB8005406F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABEA8B82563CEB8005406F2 /* LaunchScreen.storyboard */; };
-		CABEA97D256D6EF2005406F2 /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA97C256D6EF2005406F2 /* TranslationData.swift */; };
 		CABEA980256D7C1B005406F2 /* GoogleTranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */; };
 		CABEA983256D81E3005406F2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA982256D81E3005406F2 /* Language.swift */; };
-		CABEA989256F9F7B005406F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA988256F9F7B005406F2 /* Constants.swift */; };
 		CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA9922574DDCC005406F2 /* Transformation.swift */; };
-		CABEA99825766589005406F2 /* NewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA99725766589005406F2 /* NewData.swift */; };
+		CABEA99825766589005406F2 /* ModelForJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA99725766589005406F2 /* ModelForJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
+		CA6F64F02577D95700117799 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		CA6F64F52577DD2800117799 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CABEA8AA2563CEB4005406F2 /* TasteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,12 +34,10 @@
 		CABEA8B62563CEB8005406F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CABEA8B92563CEB8005406F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CABEA8BB2563CEB8005406F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CABEA97C256D6EF2005406F2 /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
 		CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPIManager.swift; sourceTree = "<group>"; };
 		CABEA982256D81E3005406F2 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		CABEA988256F9F7B005406F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CABEA9922574DDCC005406F2 /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
-		CABEA99725766589005406F2 /* NewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewData.swift; sourceTree = "<group>"; };
+		CABEA99725766589005406F2 /* ModelForJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +51,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA6F64F32577D96700117799 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CABEA8B12563CEB4005406F2 /* ViewController.swift */,
+				CA6F64F52577DD2800117799 /* TableViewCell.swift */,
+				CA6F64F02577D95700117799 /* HistoryViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA6F64FC2579125A00117799 /* BuildingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CABEA9922574DDCC005406F2 /* Transformation.swift */,
+				CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */,
+				CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */,
+			);
+			path = BuildingFiles;
+			sourceTree = "<group>";
+		};
 		CABEA8A12563CEB4005406F2 = {
 			isa = PBXGroup;
 			children = (
@@ -72,10 +92,8 @@
 			children = (
 				CABEA8AD2563CEB4005406F2 /* AppDelegate.swift */,
 				CABEA8AF2563CEB4005406F2 /* SceneDelegate.swift */,
-				CABEA8B12563CEB4005406F2 /* ViewController.swift */,
-				CABEA9922574DDCC005406F2 /* Transformation.swift */,
-				CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */,
-				CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */,
+				CA6F64FC2579125A00117799 /* BuildingFiles */,
+				CA6F64F32577D96700117799 /* ViewControllers */,
 				CABEA985256F9D45005406F2 /* Models */,
 				CABEA8B32563CEB4005406F2 /* Main.storyboard */,
 				CABEA8B62563CEB8005406F2 /* Assets.xcassets */,
@@ -88,10 +106,8 @@
 		CABEA985256F9D45005406F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CABEA97C256D6EF2005406F2 /* TranslationData.swift */,
-				CABEA99725766589005406F2 /* NewData.swift */,
+				CABEA99725766589005406F2 /* ModelForJSON.swift */,
 				CABEA982256D81E3005406F2 /* Language.swift */,
-				CABEA988256F9F7B005406F2 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,12 +185,12 @@
 				CABEA8B22563CEB4005406F2 /* ViewController.swift in Sources */,
 				CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */,
 				CABEA980256D7C1B005406F2 /* GoogleTranslateAPIManager.swift in Sources */,
-				CABEA99825766589005406F2 /* NewData.swift in Sources */,
+				CABEA99825766589005406F2 /* ModelForJSON.swift in Sources */,
 				CABEA983256D81E3005406F2 /* Language.swift in Sources */,
-				CABEA989256F9F7B005406F2 /* Constants.swift in Sources */,
+				CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */,
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
 				CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */,
-				CABEA97D256D6EF2005406F2 /* TranslationData.swift in Sources */,
+				CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */,
 				CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8KU8W72YT;
 				INFOPLIST_FILE = TasteApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8KU8W72YT;
 				INFOPLIST_FILE = TasteApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

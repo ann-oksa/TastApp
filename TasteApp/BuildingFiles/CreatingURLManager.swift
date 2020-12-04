@@ -25,7 +25,8 @@ struct CreatingURLManager {
             URLQueryItem(name: "client", value: "gtx"),
             URLQueryItem(name: "sl", value: sourseLang.rawValue),
             URLQueryItem(name: "tl", value: targetLang.rawValue ),
-            URLQueryItem(name: "q", value: text)]
+            URLQueryItem(name: "dt", value: "t"),
+            URLQueryItem(name: "q", value: text) ]
         let urlString = urlComponents.url?.absoluteURL
         return urlString
         

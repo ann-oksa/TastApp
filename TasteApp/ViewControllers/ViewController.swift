@@ -20,9 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.isHidden = true
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.stopAnimating()
+            //  activityIndicator.isHidden = true
+
     }
     
     
@@ -31,13 +30,21 @@ class ViewController: UIViewController {
               input.isEmpty == false else {
             return
         }
-        activityIndicator.isHidden = false
+      //  activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        self.transformation.transformTranslToLanguage(text: self.textField.text ?? "") { t in
+       
+        self.transformation.transformTranslToLanguage(text: input ?? "") { t in
             self.translateLabel.text = t
             
         }
-        
+
+          // activityIndicator.stopAnimating()
+      //  activityIndicator.isHidden = true
     }
+    
+    @IBAction func historyClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "toHistoryVC", sender: nil)
+    }
+    
 }
 
