@@ -112,7 +112,7 @@
                         <outlet property="indicatorOfDownloading" destination="Rgm-tQ-kNH" id="Yd1-7a-dag"/>
                         <outlet property="translationLabel" destination="Y7A-IE-onS" id="qOb-oq-9im"/>
                         <outlet property="wordInputTextField" destination="III-Vi-D58" id="DmB-Q1-U1r"/>
-                        <segue destination="AhA-3z-r33" kind="show" identifier="toHistoryVC" id="oLC-X2-oPi"/>
+                        <segue destination="AhA-3z-r33" kind="presentation" identifier="toHistoryVC" id="oLC-X2-oPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

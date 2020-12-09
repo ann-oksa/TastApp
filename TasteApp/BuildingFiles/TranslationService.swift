@@ -17,11 +17,10 @@ class TranslationService {
             var result = String()
             switch t {
             case .failure(.cantCreateURL) :
-                print("")
+                print("can`t create URL")
             case .failure(.noData) :
-                print("")
-            //case .failure(.unknownError()) :
-                print("")
+                print("there is no data")
+                print("unknown error")
             case .success(let some ) :
                 switch some[0] {
                 case .unionArrayArray(let array) :
@@ -31,13 +30,13 @@ class TranslationService {
                     default: break
                     }
                 default:
-                    print("")
+                    print("error")
                 }
                
-            default: print("")
+            default: print("error")
             }
             
-            if let translation = TranslationOfWord(word: result).word as? String {
+            if let translation = TranslationOfWord(word: result, language: .empty).word as? String {
                 DispatchQueue.main.async {
                     completionHandler(translation)
                 }

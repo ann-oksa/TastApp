@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var transformation = TranslationService()
     var targetLanguage: Language = .russian
     var sourceLanguage: Language = .english
+    var info = Information.shared
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
@@ -22,34 +23,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        indicatorOfDownloading.isHidden = true
         changingLanguageController.selectedSegmentIndex = 0
-        foo()
+        changeLanguageDependingOnTheIndex()
     }
-    func foo() {
+    
+    func changeLanguageDependingOnTheIndex() {
        
         if changingLanguageController.selectedSegmentIndex == 0 {
             targetLanguage = .russian
             sourceLanguage = .english
-            print("00")
         } else {
             targetLanguage = .english
             sourceLanguage = .russian
-            print("11")
         }
     }
-//
-//    func enotherfoo() {
-//        if targetLanguage == .russian {
-//            sourceLanguage = .english
-//        } else {
-//            targetLanguage = .english
-//            sourceLanguage = .russian
-//        }
-//    }
+
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
-        foo()
+        changeLanguageDependingOnTheIndex()
     }
     
     @IBAction func getTranslate(_ sender: UIButton) {
@@ -65,11 +57,18 @@ class ViewController: UIViewController {
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
+            self.addDataToHistory()
         }
+        
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
         performSegue(withIdentifier: "toHistoryVC", sender: nil)
+    }
+    
+    func addDataToHistory(){
+        self.info.word  = self.wordInputTextField.text ?? "word"
+        self.info.translation = self.translationLabel.text ?? "trans"
     }
     
 }
