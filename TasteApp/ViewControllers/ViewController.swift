@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var transformation = TranslationService()
     var targetLanguage: Language = .russian
     var sourceLanguage: Language = .english
-    var info = Information.shared
+    var info = Record.shared
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
-            self.addDataToHistory()
+            self.info.sendDataToRecord(word: self.wordInputTextField.text ?? "word", translation: self.translationLabel.text ?? "transl")
         }
         
     }
@@ -66,10 +66,7 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toHistoryVC", sender: nil)
     }
     
-    func addDataToHistory(){
-        self.info.word  = self.wordInputTextField.text ?? "word"
-        self.info.translation = self.translationLabel.text ?? "trans"
-    }
+    
     
 }
 

@@ -7,10 +7,14 @@
 
 import Foundation
 
-class Information {
-  
-   static let shared = Information()
-    var word = ""
-    var translation = ""
-    private init() {}
-}
+//class Information {
+//  
+//   static let shared = Information()
+//    var word = ""
+//    var translation = ""
+//    
+//    var rec: Record
+//    private init() {
+//        self.rec = Record()
+//    }
+//}
