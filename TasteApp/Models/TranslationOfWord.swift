@@ -7,11 +7,12 @@
 //
 import Foundation
 
-class Language {
+class TranslationOfWord {
  
-    let russian: String
-    init(russian: String) {
-        self.russian = russian
+    let language: Language
+    let word: String
+    init(word: String) {
+        self.word = word
     }
 
 

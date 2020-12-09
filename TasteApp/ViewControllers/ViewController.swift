@@ -9,51 +9,68 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var transformation = Transformation()
-    var targetLanguage: TargetLanguages = .empty
-    var sourceLanguage: TargetLanguages = .empty
+    var transformation = TranslationService()
+    var targetLanguage: Language = .russian
+    var sourceLanguage: Language = .english
     
-    @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var translateLabel: UILabel!
+    @IBOutlet weak var changingLanguageController: UISegmentedControl!
+    @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
+    @IBOutlet weak var translationLabel: UILabel!
+    @IBOutlet weak var wordInputTextField: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.isHidden = true
-        
+        changingLanguageController.selectedSegmentIndex = 0
+        foo()
     }
-    
-    @IBAction func segmentClicked(_ sender: UISegmentedControl) {
-        if segmentControl.selectedSegmentIndex == 0 {
+    func foo() {
+       
+        if changingLanguageController.selectedSegmentIndex == 0 {
             targetLanguage = .russian
             sourceLanguage = .english
+            print("00")
         } else {
             targetLanguage = .english
             sourceLanguage = .russian
+            print("11")
         }
     }
+//
+//    func enotherfoo() {
+//        if targetLanguage == .russian {
+//            sourceLanguage = .english
+//        } else {
+//            targetLanguage = .english
+//            sourceLanguage = .russian
+//        }
+//    }
     
-    @IBAction func buttonClicked(_ sender: UIButton) {
-        
-        guard let input = textField.text,
+    @IBAction func changeLanguage(_ sender: UISegmentedControl) {
+        foo()
+    }
+    
+    @IBAction func getTranslate(_ sender: UIButton) {
+        guard let input = wordInputTextField.text,
               input.isEmpty == false else {
             return
         }
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        indicatorOfDownloading.isHidden = false
+        indicatorOfDownloading.startAnimating()
         
         self.transformation.transformTranslToLanguage(text: input , targetLang: targetLanguage, sourceLang: sourceLanguage) { t in
             
-            self.translateLabel.text = t
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
+            self.translationLabel.text = t
+            self.indicatorOfDownloading.stopAnimating()
+            self.indicatorOfDownloading.isHidden = true
         }
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
         performSegue(withIdentifier: "toHistoryVC", sender: nil)
     }
+    
 }
 

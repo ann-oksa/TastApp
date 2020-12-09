@@ -1,6 +1,11 @@
 
 import Foundation
 
+// As all those models look weird,
+// it make sense to explain why they look so (a hack from google api, auto generated code)
+// https://www.labnol.org/code/19909-google-translate-api
+
+
 enum PurpleTranslation: Codable {
     case string(String)
     case unionArrayArray([[TranslationTranslation]])

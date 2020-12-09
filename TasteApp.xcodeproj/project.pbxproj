@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA35D77A257E6AE600E06B00 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D779257E6AE600E06B00 /* History.swift */; };
 		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
 		CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F02577D95700117799 /* HistoryViewController.swift */; };
 		CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F52577DD2800117799 /* TableViewCell.swift */; };
@@ -17,12 +18,13 @@
 		CABEA8B72563CEB8005406F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABEA8B62563CEB8005406F2 /* Assets.xcassets */; };
 		CABEA8BA2563CEB8005406F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABEA8B82563CEB8005406F2 /* LaunchScreen.storyboard */; };
 		CABEA980256D7C1B005406F2 /* GoogleTranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */; };
-		CABEA983256D81E3005406F2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA982256D81E3005406F2 /* Language.swift */; };
-		CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA9922574DDCC005406F2 /* Transformation.swift */; };
-		CABEA99825766589005406F2 /* ModelForJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA99725766589005406F2 /* ModelForJSON.swift */; };
+		CABEA983256D81E3005406F2 /* TranslationOfWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA982256D81E3005406F2 /* TranslationOfWord.swift */; };
+		CABEA9932574DDCC005406F2 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA9922574DDCC005406F2 /* TranslationService.swift */; };
+		CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA35D779257E6AE600E06B00 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
 		CA6F64F02577D95700117799 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		CA6F64F52577DD2800117799 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -35,9 +37,9 @@
 		CABEA8B92563CEB8005406F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CABEA8BB2563CEB8005406F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPIManager.swift; sourceTree = "<group>"; };
-		CABEA982256D81E3005406F2 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		CABEA9922574DDCC005406F2 /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
-		CABEA99725766589005406F2 /* ModelForJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForJSON.swift; sourceTree = "<group>"; };
+		CABEA982256D81E3005406F2 /* TranslationOfWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationOfWord.swift; sourceTree = "<group>"; };
+		CABEA9922574DDCC005406F2 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPIJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,7 @@
 		CA6F64FC2579125A00117799 /* BuildingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				CABEA9922574DDCC005406F2 /* Transformation.swift */,
+				CABEA9922574DDCC005406F2 /* TranslationService.swift */,
 				CABEA97F256D7C1B005406F2 /* GoogleTranslateAPIManager.swift */,
 				CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */,
 			);
@@ -106,8 +108,9 @@
 		CABEA985256F9D45005406F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CABEA99725766589005406F2 /* ModelForJSON.swift */,
-				CABEA982256D81E3005406F2 /* Language.swift */,
+				CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */,
+				CA35D779257E6AE600E06B00 /* History.swift */,
+				CABEA982256D81E3005406F2 /* TranslationOfWord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,11 +188,12 @@
 				CABEA8B22563CEB4005406F2 /* ViewController.swift in Sources */,
 				CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */,
 				CABEA980256D7C1B005406F2 /* GoogleTranslateAPIManager.swift in Sources */,
-				CABEA99825766589005406F2 /* ModelForJSON.swift in Sources */,
-				CABEA983256D81E3005406F2 /* Language.swift in Sources */,
+				CA35D77A257E6AE600E06B00 /* History.swift in Sources */,
+				CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */,
+				CABEA983256D81E3005406F2 /* TranslationOfWord.swift in Sources */,
 				CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */,
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
-				CABEA9932574DDCC005406F2 /* Transformation.swift in Sources */,
+				CABEA9932574DDCC005406F2 /* TranslationService.swift in Sources */,
 				CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */,
 				CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */,
 			);

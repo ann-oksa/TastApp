@@ -47,8 +47,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PTW-jE-PL1"/>
-                                    <action selector="historyClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0sb-qN-Gxm"/>
+                                    <action selector="historyClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xD-yj-uPm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o48-44-lyG">
@@ -59,10 +58,6 @@
                                 <state key="normal" title="Game">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dVC-Oo-fvW"/>
-                                    <action selector="historyClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2DO-Ia-4U5"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Translate to:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-yc-9OO">
                                 <rect key="frame" x="68" y="66" width="279" height="55"/>
@@ -80,7 +75,7 @@
                                 </segments>
                                 <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="segmentClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qg9-pT-uaL"/>
+                                    <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="valueChanged" id="8SU-PB-2EN"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your translation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-IE-onS">
@@ -99,7 +94,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mka-lp-L5R"/>
+                                    <action selector="getTranslate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Emo-lG-Fc1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,10 +108,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="Rgm-tQ-kNH" id="12e-t3-rzf"/>
-                        <outlet property="segmentControl" destination="dIK-Cu-Bz8" id="wxJ-Va-zTF"/>
-                        <outlet property="textField" destination="III-Vi-D58" id="uAh-FW-k4L"/>
-                        <outlet property="translateLabel" destination="Y7A-IE-onS" id="26F-oy-6y0"/>
+                        <outlet property="changingLanguageController" destination="dIK-Cu-Bz8" id="niF-04-dTV"/>
+                        <outlet property="indicatorOfDownloading" destination="Rgm-tQ-kNH" id="Yd1-7a-dag"/>
+                        <outlet property="translationLabel" destination="Y7A-IE-onS" id="qOb-oq-9im"/>
+                        <outlet property="wordInputTextField" destination="III-Vi-D58" id="DmB-Q1-U1r"/>
                         <segue destination="AhA-3z-r33" kind="show" identifier="toHistoryVC" id="oLC-X2-oPi"/>
                     </connections>
                 </viewController>

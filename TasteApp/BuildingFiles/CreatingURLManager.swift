@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum TargetLanguages: String {
+public enum Language: String {
     case russian = "ru"
     case english = "en"
     case empty = "empty"
@@ -15,7 +15,7 @@ public enum TargetLanguages: String {
 
 struct CreatingURLManager {
     
-    func createURLComponents(text: String, targetLang: TargetLanguages, sourseLang: TargetLanguages) -> URL? {
+    func createURLComponents(text: String, targetLang: Language, sourseLang: Language) -> URL? {
         
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
