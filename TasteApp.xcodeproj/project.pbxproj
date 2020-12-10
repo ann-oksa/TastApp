@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA33590A25811EFD00C04AD6 /* Singletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33590925811EFD00C04AD6 /* Singletone.swift */; };
+		CA33590A25811EFD00C04AD6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33590925811EFD00C04AD6 /* AppState.swift */; };
 		CA35D77A257E6AE600E06B00 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D779257E6AE600E06B00 /* History.swift */; };
 		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
 		CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F02577D95700117799 /* HistoryViewController.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA33590925811EFD00C04AD6 /* Singletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singletone.swift; sourceTree = "<group>"; };
+		CA33590925811EFD00C04AD6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		CA35D779257E6AE600E06B00 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
 		CA6F64F02577D95700117799 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -59,8 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				CABEA8B12563CEB4005406F2 /* ViewController.swift */,
-				CA6F64F52577DD2800117799 /* TableViewCell.swift */,
 				CA6F64F02577D95700117799 /* HistoryViewController.swift */,
+				CA6F64F52577DD2800117799 /* TableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -110,9 +110,9 @@
 		CABEA985256F9D45005406F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA33590925811EFD00C04AD6 /* AppState.swift */,
 				CA35D779257E6AE600E06B00 /* History.swift */,
 				CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */,
-				CA33590925811EFD00C04AD6 /* Singletone.swift */,
 				CABEA982256D81E3005406F2 /* TranslationOfWord.swift */,
 			);
 			path = Models;
@@ -195,7 +195,7 @@
 				CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */,
 				CABEA983256D81E3005406F2 /* TranslationOfWord.swift in Sources */,
 				CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */,
-				CA33590A25811EFD00C04AD6 /* Singletone.swift in Sources */,
+				CA33590A25811EFD00C04AD6 /* AppState.swift in Sources */,
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
 				CABEA9932574DDCC005406F2 /* TranslationService.swift in Sources */,
 				CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */,

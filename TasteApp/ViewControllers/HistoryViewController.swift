@@ -13,8 +13,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     //что мне для этого нужно? присваивать куда-то свои данные с ячеек и отображать их в истории
     //куда их присваивать? в синглтон
 
-    var info = Record.shared
+   
     @IBOutlet weak var tableView: UITableView!
+    
+    var appState = AppState.shared
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,8 +32,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.wordLabel.text = info.word1
-        cell.translationLabel.text = info.word2
+        cell.wordLabel.text = appState.showWord()
+        cell.translationLabel.text = appState.showTran()
         return cell
     }
     

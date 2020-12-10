@@ -10,9 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var transformation = TranslationService()
-    var targetLanguage: Language = .russian
-    var sourceLanguage: Language = .english
-    var info = Record.shared
+    
+    var appState = AppState.shared
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
@@ -25,23 +24,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         indicatorOfDownloading.isHidden = true
         changingLanguageController.selectedSegmentIndex = 0
-        changeLanguageDependingOnTheIndex()
+        appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
     }
     
-    func changeLanguageDependingOnTheIndex() {
-       
-        if changingLanguageController.selectedSegmentIndex == 0 {
-            targetLanguage = .russian
-            sourceLanguage = .english
-        } else {
-            targetLanguage = .english
-            sourceLanguage = .russian
-        }
-    }
+    
 
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
-        changeLanguageDependingOnTheIndex()
+        appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
+
     }
     
     @IBAction func getTranslate(_ sender: UIButton) {
@@ -52,12 +43,12 @@ class ViewController: UIViewController {
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
-        self.transformation.transformTranslToLanguage(text: input , targetLang: targetLanguage, sourceLang: sourceLanguage) { t in
+        self.transformation.transformTranslToLanguage(text: input , targetLang: appState.targetLanguage, sourceLang: appState.sourceLanguage) { t in
             
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
-            self.info.sendDataToRecord(word: self.wordInputTextField.text ?? "word", translation: self.translationLabel.text ?? "transl")
+            self.appState.createRecord(word1: self.wordInputTextField.text!, word2: self.translationLabel.text!)
         }
         
     }
