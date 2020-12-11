@@ -13,13 +13,13 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var translationLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func fillConfigure(record: Record) {
+        wordLabel.text = record.word1
+        translationLabel.text = record.word2
     }
 
 }

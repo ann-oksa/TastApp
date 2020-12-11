@@ -30,22 +30,15 @@ class AppState {
         }
     }
     
+    func getRecords() -> [Record] {
+        return history.journal
+    }
+    
     func createRecord(word1: String, word2: String) {
         history.createRecordInHistory(w1: word1, w2: word2)
         print("AppState  createRecord ")
     }
     
-    func showWord() -> String {
-       var word = history.showWord()
-        print("AppState showWord ")
-        return word
-    }
     
-    func showTran() -> String {
-        var trans = history.showTrans()
-        print("AppState showTrans ")
-
-        return trans
-    }
    
 }

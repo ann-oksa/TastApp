@@ -17,6 +17,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var appState = AppState.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,16 +25,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate  = self
         tableView.dataSource = self
+        
+        if UserDefaults.standard.value(forKey: "journal") != nil {
+            appState.history.journal = UserDefaults.standard.value(forKey: "journal") as! [Record]
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return appState.getRecords().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.wordLabel.text = appState.showWord()
-        cell.translationLabel.text = appState.showTran()
+        var record = appState.getRecords()[indexPath.row]
+        cell.fillConfigure(record: record)
         return cell
     }
     

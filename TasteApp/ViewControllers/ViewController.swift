@@ -22,9 +22,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         indicatorOfDownloading.isHidden = true
         changingLanguageController.selectedSegmentIndex = 0
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
+        
+        
     }
     
     

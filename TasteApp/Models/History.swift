@@ -34,23 +34,10 @@ class History {
     func addRecordToHistory(rec: Record) {
         journal.append(rec)
         print("History addRecordToHistory journal \(journal)")
+        UserDefaults.standard.setValue(journal, forKey: "journal")
+
     }
     
-    func showWord() -> String {
-        var index = 0
-        var word = journal[index].word1
-        index += 1
-        print("History showWord  word: \(word)")
-        
-        return word
-    }
-    
-    func showTrans() -> String {
-        var index = 0
-        var word = journal[index].word2
-        index += 1
-        print("History showTrans  word: \(word)")
-        return word
-    }
+   
     
 }
