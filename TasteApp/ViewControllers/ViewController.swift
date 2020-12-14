@@ -30,9 +30,6 @@ class ViewController: UIViewController {
         
     }
     
-    
-
-    
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
 
@@ -52,12 +49,15 @@ class ViewController: UIViewController {
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
             self.appState.createRecord(word1: self.wordInputTextField.text!, word2: self.translationLabel.text!)
+           
+            
         }
         
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
         performSegue(withIdentifier: "toHistoryVC", sender: nil)
+        
     }
     
     

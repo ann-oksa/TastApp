@@ -25,10 +25,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate  = self
         tableView.dataSource = self
-        
-        if UserDefaults.standard.value(forKey: "journal") != nil {
-            appState.history.journal = UserDefaults.standard.value(forKey: "journal") as! [Record]
-        }
+       
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
