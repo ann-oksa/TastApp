@@ -13,10 +13,13 @@ class Record: Codable {
     var word1: String
     var word2: String
     
+    
     init(word1: String, word2: String) {
         self.word1 = word1
         self.word2 = word2
     }
+    
+    
     
 }
 

@@ -61,6 +61,10 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func gameClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "toGameVC", sender: nil)
+    }
+    
     
 }
 

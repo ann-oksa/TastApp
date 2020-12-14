@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA33590A25811EFD00C04AD6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33590925811EFD00C04AD6 /* AppState.swift */; };
+		CA33590F25877F3500C04AD6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33590E25877F3500C04AD6 /* GameViewController.swift */; };
 		CA35D77A257E6AE600E06B00 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D779257E6AE600E06B00 /* History.swift */; };
 		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
 		CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F02577D95700117799 /* HistoryViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		CA33590925811EFD00C04AD6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		CA33590E25877F3500C04AD6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CA35D779257E6AE600E06B00 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
 		CA6F64F02577D95700117799 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				CABEA8B12563CEB4005406F2 /* ViewController.swift */,
 				CA6F64F02577D95700117799 /* HistoryViewController.swift */,
+				CA33590E25877F3500C04AD6 /* GameViewController.swift */,
 				CA6F64F52577DD2800117799 /* TableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -192,6 +195,7 @@
 				CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */,
 				CABEA980256D7C1B005406F2 /* GoogleTranslateAPIManager.swift in Sources */,
 				CA35D77A257E6AE600E06B00 /* History.swift in Sources */,
+				CA33590F25877F3500C04AD6 /* GameViewController.swift in Sources */,
 				CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */,
 				CABEA983256D81E3005406F2 /* TranslationOfWord.swift in Sources */,
 				CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */,

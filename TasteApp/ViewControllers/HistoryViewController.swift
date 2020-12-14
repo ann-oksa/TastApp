@@ -25,7 +25,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate  = self
         tableView.dataSource = self
-       
+       title = "History"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(sortJournalByAlphabet))
+    }
+    
+    @objc func sortJournalByAlphabet() {
+        print("Item clicked")
+        appState.history.journal.sort(by: { $0.word1 < $1.word1 })
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
