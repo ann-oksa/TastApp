@@ -8,26 +8,33 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-   // я хочу чтобы при вводе слова и перевода при переходе в историю, у меня отображались мои запросы
-    //что мне для этого нужно? присваивать куда-то свои данные с ячеек и отображать их в истории
-    //куда их присваивать? в синглтон
-
-   
+    
     @IBOutlet weak var tableView: UITableView!
     
     var appState = AppState.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
         tableView.delegate  = self
         tableView.dataSource = self
-       title = "History"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(sortJournalByAlphabet))
+        title = "History"
+        
+        
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "a"), style: .plain, target: self, action: #selector(sortJournalByAlphabet))
+        let settingButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(canMoveRow))
+        navigationItem.rightBarButtonItems = [sortButton, settingButton ]
     }
+    
+    
+    @objc func canMoveRow() {
+        print("can move")
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     
     @objc func sortJournalByAlphabet() {
         print("Item clicked")
@@ -46,5 +53,5 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-
+    
 }
