@@ -14,7 +14,7 @@ class AppState {
     let history : History
     var targetLanguage: Language = .russian
     var sourceLanguage: Language = .english
-    
+    var formater = Formater()
     private init() {
         history = History()
     }
@@ -37,6 +37,7 @@ class AppState {
     func createRecord(word1: String, word2: String) {
         history.createRecordInHistory(w1: word1, w2: word2)
         print("AppState  createRecord ")
+        formater.convertCurrentDateToString()
     }
     
     

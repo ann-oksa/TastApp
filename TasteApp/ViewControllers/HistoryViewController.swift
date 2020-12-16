@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,20 +19,42 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate  = self
         tableView.dataSource = self
         title = "History"
+      //  setupGesture()
         
-        
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "a"), style: .plain, target: self, action: #selector(sortJournalByAlphabet))
-        let settingButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(canMoveRow))
-        navigationItem.rightBarButtonItems = [sortButton, settingButton ]
+//        let sortButton = UIBarButtonItem(image: UIImage(systemName: "a"), style: .plain, target: self, action: #selector(sortJournalByAlphabet))
+//        let settingButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(canMoveRow))
+//        navigationItem.rightBarButtonItems = [sortButton, settingButton ]
     }
     
-    
-    @objc func canMoveRow() {
-        print("can move")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPopover" {
+            let popoverVC = segue.destination
+            popoverVC.popoverPresentationController?.delegate = self
+        }
     }
+
+
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
+//    private func setupGesture() {
+//        let tapGesture = UIGestureRecognizer(target: navigationItem.rightBarButtonItem, action: #selector(tapped))
+//      //  tapGesture.numberOfTouches
+//
+//    }
+//
+//
+//    @objc func tapped() {
+//        guard let popVC = storyboard?.instantiateViewController(identifier: "popVC") else { return  }
+//        popVC.modalPresentationStyle =  .popover
+//        let popOverVC = popVC.popoverPresentationController
+//        popOverVC?.delegate = self
+//        popOverVC?.sourceView = navigationItem.rightBarButtonItem
+//      //  popOverVC?.sourceRect = CGRect(x: self.navigationItem.rightBarButtonItem.bounds, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+//        popVC.preferredContentSize = CGSize(width: 250, height: 250)
+//        self.present(popVC, animated: true)
+//    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     
