@@ -232,11 +232,6 @@
                     <navigationItem key="navigationItem" title="Title" id="CWd-cZ-mpv">
                         <barButtonItem key="rightBarButtonItem" image="filemenu.and.cursorarrow" catalog="system" id="Ifv-2M-twX">
                             <color key="tintColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <segue destination="Pr0-9D-SoU" kind="popoverPresentation" identifier="showPopover" popoverAnchorBarButtonItem="Ifv-2M-twX" id="0Gn-uI-Ecy">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -247,19 +242,13 @@
             </objects>
             <point key="canvasLocation" x="2845.5999999999999" y="-179.46026986506749"/>
         </scene>
-        <!--View Controller-->
+        <!--Popover View Controller-->
         <scene sceneID="GLl-dV-CKP">
             <objects>
-                <viewController id="Pr0-9D-SoU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopoverViewController" id="Pr0-9D-SoU" customClass="PopoverViewController" customModule="TasteApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lmP-qq-WB6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yaq-cI-OJb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6CW-sj-AzY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -269,35 +258,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cI6-zk-Bs6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3849" y="-408"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="w0k-pB-NFV">
-            <objects>
-                <tableViewController storyboardIdentifier="popVC" id="YtY-2q-vf9" customClass="TableViewController" customModule="TasteApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qcs-Aw-ydc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hxn-hN-yem">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hxn-hN-yem" id="BP3-0d-cn3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="YtY-2q-vf9" id="daH-dB-1KO"/>
-                            <outlet property="delegate" destination="YtY-2q-vf9" id="fu8-eV-e0X"/>
-                        </connections>
-                    </tableView>
-                    <size key="freeformSize" width="375" height="200"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C00-ho-2pZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3849" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tL0-38-ddz">

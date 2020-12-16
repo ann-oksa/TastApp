@@ -7,23 +7,44 @@
 
 import UIKit
 
-class PopoverViewController: ViewController {
-
+class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+  
+    let picker = UIPickerView()
+    let arrayOfSorting = AppState.shared.sorting.arrayOfSorting
+    var callerViewController : HistoryViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(picker)
+
+        picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+        picker.delegate  = self
+        picker.dataSource = self
+
+
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrayOfSorting.count
     }
-    */
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrayOfSorting[row].rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(arrayOfSorting[row])
+      //  callerViewController.sortDictionary(by: row)
+    }
+    
 
 }
