@@ -11,7 +11,7 @@ class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
   
     let picker = UIPickerView()
     let arrayOfSorting = AppState.shared.sorting.arrayOfSorting
-    var callerViewController : HistoryViewController?
+    var callerViewController : SortPickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(arrayOfSorting[row])
-      //  callerViewController.sortDictionary(by: row)
+        callerViewController?.sortDictionary(by: row)
     }
     
 
