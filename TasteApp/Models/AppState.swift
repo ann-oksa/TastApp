@@ -41,6 +41,10 @@ class AppState {
         formater.convertCurrentDateToString()
     }
     
+    func sort(type: KindOfSorting) -> [Record] {
+        sorting.sortDictionary(type: type)
+       return self.getRecords()
+    }
     
     
     

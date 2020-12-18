@@ -7,12 +7,12 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
-    
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate, SortPickerDelegate {
+ 
     @IBOutlet weak var tableView: UITableView!
     
     var appState = AppState.shared
-    var delegate : SortPickerDelegate?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         popOverVC?.delegate = self
         popOverVC?.barButtonItem = navigationItem.rightBarButtonItem
         popVC.preferredContentSize = CGSize(width: 350, height: 150)
-        popVC.callerViewController = delegate
+        popVC.delegate = self
         self.present(popVC, animated: true)
     }
     
@@ -59,19 +59,18 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.fillConfigure(record: record)
         return cell
     }
+    
+    func sortDictionary(method: KindOfSorting) {
+        appState.sort(type: method)
+        print("sortDictionary(method: \(method)")
+    }
+    
+    func chozenMethodOfSorting(method: KindOfSorting) {
+        sortDictionary(method: method)
+        print("chozenMethodOfSorting(method: \(method))")
+    }
+    
 }
 
-protocol SortPickerDelegate {
-    
-    func chozenMethodOfSorting(method: KindOfSorting)
-    
-    func sortDictionary(by: Int)
-    // метод такое то значение сортировки выбрано
-    // все жэкземпляры хистори мс (коллер) заменить на делегата, который реализовывает протокол
-    // фугкцтю  callerViewController.sortDictionary(by: row) тоже вызвать у делегата
-    
-}
 
-extension SortPickerDelegate {
-    
-}
+

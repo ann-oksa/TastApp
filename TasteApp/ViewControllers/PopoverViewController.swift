@@ -7,12 +7,21 @@
 
 import UIKit
 
+protocol SortPickerDelegate {
+    
+    func chozenMethodOfSorting(method: KindOfSorting)
+    // метод такое то значение сортировки выбрано
+    // все жэкземпляры хистори мс (коллер) заменить на делегата, который реализовывает протокол
+    // фугкцтю  callerViewController.sortDictionary(by: row) тоже вызвать у делегата
+    
+}
+
 class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
   
     let picker = UIPickerView()
     let arrayOfSorting = AppState.shared.sorting.arrayOfSorting
-    var callerViewController : SortPickerDelegate?
-    
+    var delegate : SortPickerDelegate?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +34,7 @@ class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
         picker.delegate  = self
         picker.dataSource = self
-
+        
 
     }
 
@@ -43,7 +52,8 @@ class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(arrayOfSorting[row])
-        callerViewController?.sortDictionary(by: row)
+        print(type(of: arrayOfSorting[row]))
+        delegate?.chozenMethodOfSorting(method: arrayOfSorting[row])
     }
     
 
