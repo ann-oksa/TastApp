@@ -152,18 +152,42 @@
             </objects>
             <point key="canvasLocation" x="262" y="55"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="58x-mc-b9o">
             <objects>
-                <viewController id="eSy-r1-MIY" sceneMemberID="viewController">
+                <viewController id="eSy-r1-MIY" customClass="GameViewController" customModule="TasteApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNm-TH-FlZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQP-3P-jQA">
+                                <rect key="frame" x="46" y="124" width="285" height="515"/>
+                                <color key="backgroundColor" red="0.83897588010000002" green="0.83951141019999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mQP-3P-jQA" secondAttribute="height" multiplier="57:103" id="hAK-MS-Lob"/>
+                                </constraints>
+                                <state key="normal" title="Name">
+                                    <color key="titleColor" red="0.61796307563781738" green="0.091821469366550446" blue="0.60149449110031128" alpha="0.99988555909999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonFlip:" destination="eSy-r1-MIY" eventType="touchUpInside" id="WLB-8o-H0t"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wg4-1u-zeh"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="mQP-3P-jQA" firstAttribute="leading" secondItem="Wg4-1u-zeh" secondAttribute="leading" constant="46" id="8oJ-i5-wGR"/>
+                            <constraint firstItem="Wg4-1u-zeh" firstAttribute="trailing" secondItem="mQP-3P-jQA" secondAttribute="trailing" constant="44" id="BrP-Eh-S7C"/>
+                            <constraint firstItem="mQP-3P-jQA" firstAttribute="top" secondItem="Wg4-1u-zeh" secondAttribute="top" constant="28" id="PYy-si-djk"/>
+                            <constraint firstItem="Wg4-1u-zeh" firstAttribute="bottom" secondItem="mQP-3P-jQA" secondAttribute="bottom" constant="28" id="v4W-U1-9fz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3oW-8l-lTz"/>
+                    <connections>
+                        <outlet property="buttonCard" destination="mQP-3P-jQA" id="iGE-Mo-Jen"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCz-SD-Wq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
