@@ -160,14 +160,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Wg4-1u-zeh"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemTealColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="3oW-8l-lTz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCz-SD-Wq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="546"/>
+            <point key="canvasLocation" x="1132" y="545.57721139430294"/>
         </scene>
         <!--Title-->
         <scene sceneID="LW7-vq-REp">

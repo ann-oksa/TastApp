@@ -10,19 +10,19 @@ import Foundation
 class Record: Codable {
     var word1: String
     var word2: String
+    let date: Date
     
     init(word1: String, word2: String) {
         self.word1 = word1
         self.word2 = word2
+        self.date = Date()
     }
 }
 
 
 class History : Codable {
     
-    var date = Date()
     var journal: [Record] = []
-    
     init() {
         self.readRecordsFromDisk()
     }
@@ -31,6 +31,7 @@ class History : Codable {
         var r = Record(word1: w1, word2: w2)
         addRecordToHistory(rec: r)
         saveRecordsToDisk()
+        print(r.date)
     }
     
     func addRecordToHistory(rec: Record) {
@@ -42,10 +43,9 @@ class History : Codable {
         do {
             let data = try encoder.encode(journal)
             UserDefaults.standard.setValue(data, forKey: "journal")
-            print("save record data \(data)")
         }
         catch {
-            print("some error \(error)")
+            print("some error \(error.localizedDescription)")
         }
     }
     
@@ -54,7 +54,6 @@ class History : Codable {
             let decoder = JSONDecoder()
             do {
                 let records = try decoder.decode([Record].self, from: data)
-                print("read record r \(records.count)")
                 journal = records
             }
             catch {

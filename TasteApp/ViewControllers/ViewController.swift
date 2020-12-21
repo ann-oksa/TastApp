@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
-
+        
     }
     
     @IBAction func getTranslate(_ sender: UIButton) {
@@ -48,8 +48,8 @@ class ViewController: UIViewController {
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
-            self.appState.createRecord(word1: self.wordInputTextField.text!, word2: self.translationLabel.text!)
-           
+            self.appState.createRecord(word1: self.wordInputTextField.text ?? "", word2: self.translationLabel.text ?? "")
+            
             
         }
         

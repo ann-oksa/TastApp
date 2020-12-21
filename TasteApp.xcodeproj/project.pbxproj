@@ -12,7 +12,6 @@
 		CA3359132589285E00C04AD6 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3359122589285E00C04AD6 /* PopoverViewController.swift */; };
 		CA35D77A257E6AE600E06B00 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D779257E6AE600E06B00 /* History.swift */; };
 		CA43878C258A1C20001218A9 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA43878B258A1C20001218A9 /* Sorting.swift */; };
-		CA43878F258A2EAA001218A9 /* Formater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA43878E258A2EAA001218A9 /* Formater.swift */; };
 		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
 		CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F02577D95700117799 /* HistoryViewController.swift */; };
 		CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F52577DD2800117799 /* TableViewCell.swift */; };
@@ -34,7 +33,6 @@
 		CA3359122589285E00C04AD6 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		CA35D779257E6AE600E06B00 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		CA43878B258A1C20001218A9 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
-		CA43878E258A2EAA001218A9 /* Formater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formater.swift; sourceTree = "<group>"; };
 		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
 		CA6F64F02577D95700117799 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		CA6F64F52577DD2800117799 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				CA33590925811EFD00C04AD6 /* AppState.swift */,
 				CA43878B258A1C20001218A9 /* Sorting.swift */,
 				CA35D779257E6AE600E06B00 /* History.swift */,
-				CA43878E258A2EAA001218A9 /* Formater.swift */,
 				CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */,
 				CABEA982256D81E3005406F2 /* TranslationOfWord.swift */,
 			);
@@ -214,7 +211,6 @@
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
 				CABEA9932574DDCC005406F2 /* TranslationService.swift in Sources */,
 				CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */,
-				CA43878F258A2EAA001218A9 /* Formater.swift in Sources */,
 				CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

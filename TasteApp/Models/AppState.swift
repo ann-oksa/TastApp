@@ -8,13 +8,12 @@
 import Foundation
 
 class AppState {
-  
-   static let shared = AppState()
+    
+    static let shared = AppState()
     
     let history : History
     var targetLanguage: Language = .russian
     var sourceLanguage: Language = .english
-    var formater = Formater()
     let sorting = Sorting()
     
     private init() {
@@ -22,7 +21,7 @@ class AppState {
     }
     
     func changeLanguageDependingOnTheIndex(index: Int) {
-       
+        
         if index == 0 {
             targetLanguage = .russian
             sourceLanguage = .english
@@ -38,15 +37,12 @@ class AppState {
     
     func createRecord(word1: String, word2: String) {
         history.createRecordInHistory(w1: word1, w2: word2)
-        formater.convertCurrentDateToString()
     }
     
-    func sort(type: KindOfSorting) -> [Record] {
-        sorting.sortDictionary(type: type)
-       return self.getRecords()
+    func sort(byType: KindOfSorting, someRecords: [Record]) {
+        //  sorting.sortDictionary(type: byType, someRecords: someRecords)
     }
     
     
     
-   
 }

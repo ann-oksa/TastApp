@@ -8,11 +8,12 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate, SortPickerDelegate {
- 
+    
     @IBOutlet weak var tableView: UITableView!
     
     var appState = AppState.shared
-   
+    
+    var records : [Record]  = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate  = self
         tableView.dataSource = self
         title = "History"
-      
+        self.records = appState.getRecords()
+        
         let sortButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(tapped))
         navigationItem.rightBarButtonItem = sortButton
         
@@ -42,32 +44,36 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         popVC.preferredContentSize = CGSize(width: 350, height: 150)
         popVC.delegate = self
         self.present(popVC, animated: true)
+        
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appState.getRecords().count
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        var record = appState.getRecords()[indexPath.row]
+        var record = records[indexPath.row]
         cell.fillConfigure(record: record)
         return cell
     }
     
     func sortDictionary(method: KindOfSorting) {
-        appState.sort(type: method)
-        print("sortDictionary(method: \(method)")
+        switch method {
+        case .AZ: records.sort(by: {$1.word1 > $0.word1})
+        case .ZA: records.sort(by: {$1.word1 < $0.word1})
+        case .earliest: records.sort(by: {$1.date > $0.date})
+        case .latest: records.sort(by: {$1.date < $0.date})
+        }
+        tableView.reloadData()
     }
     
     func chozenMethodOfSorting(method: KindOfSorting) {
         sortDictionary(method: method)
-        print("chozenMethodOfSorting(method: \(method))")
     }
     
 }

@@ -15,20 +15,7 @@ public enum KindOfSorting: String, CaseIterable {
 }
 
 class Sorting {
-  
-   
+    
     var arrayOfSorting : [KindOfSorting] = KindOfSorting.allCases
-
-    func sortDictionary(type: KindOfSorting) {
-        // отсортировать массив по входящему критерию
-        //
-        for x in arrayOfSorting {
-            
-        }
-    }
-
-    func sortByAZ() {
-        
-    }
-    func sortByZA() {}
+    
 }
