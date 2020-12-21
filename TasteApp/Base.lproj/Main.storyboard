@@ -161,16 +161,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQP-3P-jQA">
-                                <rect key="frame" x="46" y="124" width="285" height="515"/>
+                                <rect key="frame" x="46" y="124" width="285" height="215"/>
                                 <color key="backgroundColor" red="0.83897588010000002" green="0.83951141019999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="mQP-3P-jQA" secondAttribute="height" multiplier="57:103" id="hAK-MS-Lob"/>
+                                    <constraint firstAttribute="width" constant="285" id="7mz-g5-vk1"/>
+                                    <constraint firstAttribute="height" constant="215" id="fJd-gt-WEe"/>
                                 </constraints>
                                 <state key="normal" title="Name">
-                                    <color key="titleColor" red="0.61796307563781738" green="0.091821469366550446" blue="0.60149449110031128" alpha="0.99988555909999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonFlip:" destination="eSy-r1-MIY" eventType="touchUpInside" id="WLB-8o-H0t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-Am-ieh">
+                                <rect key="frame" x="46" y="547" width="95" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="arrowshape.turn.up.left" catalog="system"/>
+                                <connections>
+                                    <action selector="previousClicked:" destination="eSy-r1-MIY" eventType="touchUpInside" id="Pla-ps-bHD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMC-hG-8Ah">
+                                <rect key="frame" x="236" y="547" width="95" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="arrowshape.turn.up.right" catalog="system"/>
+                                <connections>
+                                    <action selector="nextClicked:" destination="eSy-r1-MIY" eventType="touchUpInside" id="DtS-na-Exh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -181,7 +200,7 @@
                             <constraint firstItem="mQP-3P-jQA" firstAttribute="leading" secondItem="Wg4-1u-zeh" secondAttribute="leading" constant="46" id="8oJ-i5-wGR"/>
                             <constraint firstItem="Wg4-1u-zeh" firstAttribute="trailing" secondItem="mQP-3P-jQA" secondAttribute="trailing" constant="44" id="BrP-Eh-S7C"/>
                             <constraint firstItem="mQP-3P-jQA" firstAttribute="top" secondItem="Wg4-1u-zeh" secondAttribute="top" constant="28" id="PYy-si-djk"/>
-                            <constraint firstItem="Wg4-1u-zeh" firstAttribute="bottom" secondItem="mQP-3P-jQA" secondAttribute="bottom" constant="28" id="v4W-U1-9fz"/>
+                            <constraint firstItem="Wg4-1u-zeh" firstAttribute="bottom" secondItem="mQP-3P-jQA" secondAttribute="bottom" constant="328" id="v4W-U1-9fz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3oW-8l-lTz"/>
@@ -312,6 +331,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="filemenu.and.cursorarrow" catalog="system" width="128" height="96"/>
         <image name="one" width="467" height="700.5"/>
         <systemColor name="systemBackgroundColor">
