@@ -162,13 +162,14 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQP-3P-jQA">
                                 <rect key="frame" x="46" y="124" width="285" height="215"/>
-                                <color key="backgroundColor" red="0.83897588010000002" green="0.83951141019999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="285" id="7mz-g5-vk1"/>
                                     <constraint firstAttribute="height" constant="215" id="fJd-gt-WEe"/>
                                 </constraints>
-                                <state key="normal" title="Name">
-                                    <color key="titleColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="TAP HERE TO START">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonFlip:" destination="eSy-r1-MIY" eventType="touchUpInside" id="WLB-8o-H0t"/>
@@ -206,6 +207,8 @@
                     <navigationItem key="navigationItem" id="3oW-8l-lTz"/>
                     <connections>
                         <outlet property="buttonCard" destination="mQP-3P-jQA" id="iGE-Mo-Jen"/>
+                        <outlet property="nextButton" destination="vMC-hG-8Ah" id="TDS-wP-cWF"/>
+                        <outlet property="previousButton" destination="zyv-Am-ieh" id="2px-mk-qXm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCz-SD-Wq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,53 +8,98 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
-    @IBOutlet weak var buttonCard: UIButton!
     
-    var isOpen = false
+    @IBOutlet weak var buttonCard: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    var game = Game()
     let shared = AppState.shared
-    var index = 0
-    var cardTitle: String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        game.currentIndex = 0
+        game.isOpen = true
+        game.records = shared.history.journal
+        game.someCardTitle = ""
+        previousButton.isHidden = true
         
     }
     
     @IBAction func buttonFlip(_ sender: UIButton) {
-        
-        if isOpen {
-            isOpen = false
-         
-//            let title = "Summer"
-             cardTitle = shared.history.journal[index].word1
-            buttonCard.setTitle(cardTitle, for: .normal)
-            buttonCard.backgroundColor  = .lightGray
+  
+        if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
+            if game.isOpen {
+                game.isOpen = false
+                game.someCardTitle = game.records[game.currentIndex].word2
+                buttonCard.setTitle(game.someCardTitle, for: .normal)
+                buttonCard.backgroundColor = .white
+                UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+            } else {
+                game.isOpen = true
+                game.someCardTitle = game.records[game.currentIndex].word1
+                buttonCard.setTitle(game.someCardTitle, for: .normal)
+                buttonCard.backgroundColor = .white
+                UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+            }
             
-            UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-            //   let image = UIImage(named: "summer")
-//            buttonCard.setImage(image, for: .normal)
-//            UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+            
+            
         } else {
-            isOpen = true
-//            let image = UIImage(named: "winter")
-//            buttonCard.setImage(image, for: .normal)
-//            UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
-//            let title = "Winter"
-             cardTitle = shared.history.journal[index].word2
-
-            buttonCard.setTitle(cardTitle, for: .normal)
-            buttonCard.backgroundColor = .white
-            UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+            makeAlert()
         }
+        
     }
     
     @IBAction func nextClicked(_ sender: UIButton) {
-        index += 1
-        
+        previousButton.isHidden = false
+        game.currentIndex += 1
+        if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
+            //  previousButton.isHidden = false
+            game.isOpen = false
+               
+                game.someCardTitle = game.records[game.currentIndex].word2
+                buttonCard.setTitle(game.someCardTitle, for: .normal)
+               // buttonCard.backgroundColor = .white
+      
+            
+        } else {
+            makeAlert()
+        }
+
     }
     
     @IBAction func previousClicked(_ sender: UIButton) {
+        game.currentIndex -= 1
+        
+        if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
+            //  previousButton.isHidden = false
+            
+            game.isOpen = false
+                game.someCardTitle = game.records[game.currentIndex].word2
+                buttonCard.setTitle(game.someCardTitle, for: .normal)
+               // buttonCard.backgroundColor = .white
+               
+            
+            
+        } else {
+            makeAlert()
+        }
+    }
+    
+    
+    func makeAlert() {
+        let alert = UIAlertController(title: "You learned all the words!", message: "Do you want try again?", preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.game.currentIndex = 0
+            self.buttonCard.setTitle("TAP HERE TO START", for: .normal)
+        }
+        alert.addAction(cancelButton)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

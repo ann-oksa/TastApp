@@ -15,7 +15,7 @@ class AppState {
     var targetLanguage: Language = .russian
     var sourceLanguage: Language = .english
     let sorting = Sorting()
-    
+   
     private init() {
         history = History()
     }
@@ -39,9 +39,8 @@ class AppState {
         history.createRecordInHistory(w1: word1, w2: word2)
     }
     
-    func sort(byType: KindOfSorting, someRecords: [Record]) {
-        //  sorting.sortDictionary(type: byType, someRecords: someRecords)
-    }
+    
+    
     
     
     
