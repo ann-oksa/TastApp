@@ -25,8 +25,21 @@ class GameViewController: UIViewController {
         game.records = shared.history.journal
         game.someCardTitle = ""
         previousButton.isHidden = true
-        
+        checkRecords()
     }
+    
+    func checkRecords(){
+        if game.records.count == 0 {
+            let alert = UIAlertController(title: nil, message: "You don`t have words in history", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "Back to main menu", style: .default) { (al) in
+                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+               
+            }
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     @IBAction func buttonFlip(_ sender: UIButton) {
         

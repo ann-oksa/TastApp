@@ -209,11 +209,13 @@
                         <outlet property="buttonCard" destination="mQP-3P-jQA" id="iGE-Mo-Jen"/>
                         <outlet property="nextButton" destination="vMC-hG-8Ah" id="TDS-wP-cWF"/>
                         <outlet property="previousButton" destination="zyv-Am-ieh" id="2px-mk-qXm"/>
+                        <segue destination="Nko-y6-2JH" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="MfW-dZ-Xpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCz-SD-Wq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Nko-y6-2JH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="545.57721139430294"/>
+            <point key="canvasLocation" x="1132" y="543"/>
         </scene>
         <!--Title-->
         <scene sceneID="LW7-vq-REp">

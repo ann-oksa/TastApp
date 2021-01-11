@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     var transformation = TranslationService()
     
@@ -26,9 +26,21 @@ class ViewController: UIViewController {
         indicatorOfDownloading.isHidden = true
         changingLanguageController.selectedSegmentIndex = 0
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
+        self.wordInputTextField.delegate = self
         
-        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
     }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+                return false
+    }
+    
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
@@ -58,6 +70,8 @@ class ViewController: UIViewController {
     @IBAction func gameClicked(_ sender: UIButton) {
         performSegue(withIdentifier: "toGameVC", sender: nil)
     }
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
     
 }
