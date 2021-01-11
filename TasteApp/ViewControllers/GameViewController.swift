@@ -29,7 +29,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func buttonFlip(_ sender: UIButton) {
-  
+        
         if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
             if game.isOpen {
                 game.isOpen = false
@@ -44,46 +44,29 @@ class GameViewController: UIViewController {
                 buttonCard.backgroundColor = .white
                 UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
             }
-            
-            
-            
         } else {
             makeAlert()
         }
-        
     }
     
     @IBAction func nextClicked(_ sender: UIButton) {
         previousButton.isHidden = false
         game.currentIndex += 1
         if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
-            //  previousButton.isHidden = false
             game.isOpen = false
-               
-                game.someCardTitle = game.records[game.currentIndex].word2
-                buttonCard.setTitle(game.someCardTitle, for: .normal)
-               // buttonCard.backgroundColor = .white
-      
-            
+            game.someCardTitle = game.records[game.currentIndex].word2
+            buttonCard.setTitle(game.someCardTitle, for: .normal)
         } else {
             makeAlert()
         }
-
     }
     
     @IBAction func previousClicked(_ sender: UIButton) {
         game.currentIndex -= 1
-        
         if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
-            //  previousButton.isHidden = false
-            
             game.isOpen = false
-                game.someCardTitle = game.records[game.currentIndex].word2
-                buttonCard.setTitle(game.someCardTitle, for: .normal)
-               // buttonCard.backgroundColor = .white
-               
-            
-            
+            game.someCardTitle = game.records[game.currentIndex].word2
+            buttonCard.setTitle(game.someCardTitle, for: .normal)
         } else {
             makeAlert()
         }
@@ -95,7 +78,8 @@ class GameViewController: UIViewController {
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
             self.game.currentIndex = 0
-            self.buttonCard.setTitle("TAP HERE TO START", for: .normal)
+            self.game.someCardTitle = self.game.records[self.game.currentIndex].word2
+            self.buttonCard.setTitle(self.game.someCardTitle, for: .normal)
         }
         alert.addAction(cancelButton)
         alert.addAction(okButton)

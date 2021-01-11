@@ -75,7 +75,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func chozenMethodOfSorting(method: KindOfSorting) {
         sortDictionary(method: method)
     }
-    
 }
 
 

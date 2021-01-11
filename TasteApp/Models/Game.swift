@@ -17,7 +17,6 @@ class Game {
     
     func setCardTitle(rec: [Record]) -> String {
         someCardTitle = rec[currentIndex].word1
-        
         return someCardTitle
     }
     
