@@ -13,7 +13,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var appState = AppState.shared
     
-    var records : [Record]  = AppState.shared.getRecords()
+    var records : [Record] = AppState.shared.getRecords()
+    
+    var chosenRecord: Record?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,19 +85,30 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete")
             self.records.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//            UserDefaults.standard.removeObject(forKey: records[indexPath.row].word1)
-//            UserDefaults.standard.synchronize()
+            
+            
+            print("delete")
+            print(records.count)
+            // записать измененный  массив в юзер дефолтс
+            self.appState.history.saveRecordsToDisk()
             self.tableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosenRecord = records[indexPath.row]
+        print(chosenRecord?.word1)
         performSegue(withIdentifier: "toDetailsVC", sender: self)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toDetailsVC" {
+//            let destinationVC = segue.destination as! DetailsViewController
+//            destinationVC.chosenRecord = chosenRecord
+//        }
+//}
+
+
 }
-
-
-

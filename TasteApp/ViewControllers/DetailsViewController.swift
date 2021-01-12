@@ -9,6 +9,12 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var word1Textfield: UITextField!
+    @IBOutlet weak var word2Textfield: UITextField!
+    @IBOutlet weak var saveChangesButton: UIButton!
+    
+    var chosenRecord : Record?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +22,9 @@ class DetailsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveChangesClicked(_ sender: UIButton) {
+        
     }
-    */
+    
 
 }
