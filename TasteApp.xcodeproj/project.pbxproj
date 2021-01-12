@@ -13,6 +13,7 @@
 		CA35D77A257E6AE600E06B00 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D779257E6AE600E06B00 /* History.swift */; };
 		CA43878C258A1C20001218A9 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA43878B258A1C20001218A9 /* Sorting.swift */; };
 		CA4E507C25932FE300771E8A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E507B25932FE300771E8A /* Game.swift */; };
+		CA61AC0F25ADB2D2002FD7AC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA61AC0E25ADB2D2002FD7AC /* DetailsViewController.swift */; };
 		CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */; };
 		CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F02577D95700117799 /* HistoryViewController.swift */; };
 		CA6F64F62577DD2800117799 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F64F52577DD2800117799 /* TableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		CA35D779257E6AE600E06B00 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		CA43878B258A1C20001218A9 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
 		CA4E507B25932FE300771E8A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CA61AC0E25ADB2D2002FD7AC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CA6F64EC2576B30E00117799 /* CreatingURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingURLManager.swift; sourceTree = "<group>"; };
 		CA6F64F02577D95700117799 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		CA6F64F52577DD2800117799 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				CA6F64F02577D95700117799 /* HistoryViewController.swift */,
 				CA3359122589285E00C04AD6 /* PopoverViewController.swift */,
 				CA33590E25877F3500C04AD6 /* GameViewController.swift */,
+				CA61AC0E25ADB2D2002FD7AC /* DetailsViewController.swift */,
 				CA6F64F52577DD2800117799 /* TableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -209,6 +212,7 @@
 				CA33590F25877F3500C04AD6 /* GameViewController.swift in Sources */,
 				CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */,
 				CABEA983256D81E3005406F2 /* TranslationOfWord.swift in Sources */,
+				CA61AC0F25ADB2D2002FD7AC /* DetailsViewController.swift in Sources */,
 				CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */,
 				CA33590A25811EFD00C04AD6 /* AppState.swift in Sources */,
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,

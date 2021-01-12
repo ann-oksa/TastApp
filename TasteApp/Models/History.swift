@@ -23,6 +23,9 @@ class Record: Codable {
 class History : Codable {
     
     var journal: [Record] = []
+    var targ : Language = .english
+    var sour : Language = .russian
+    
     init() {
         self.readRecordsFromDisk()
     }
@@ -38,29 +41,62 @@ class History : Codable {
         journal.append(rec)
     }
     
+//    func saveRecordsToDisk() {
+//        let encoder = JSONEncoder()
+//        do {
+//            let data = try encoder.encode(journal)
+//            UserDefaults.standard.setValue(data, forKey: "journal")
+//        }
+//        catch {
+//            print("some error \(error.localizedDescription)")
+//        }
+//    }
+//
+    
     func saveRecordsToDisk() {
         let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(journal)
-            UserDefaults.standard.setValue(data, forKey: "journal")
+        for record in journal {
+            do {
+                let data = try encoder.encode(record)
+                UserDefaults.standard.setValue(data, forKey: "word1")
+            }
+            catch {
+                print("some error \(error.localizedDescription)")
+            }
         }
-        catch {
-            print("some error \(error.localizedDescription)")
-        }
+        
     }
     
     private func readRecordsFromDisk() {
-        if let data = UserDefaults.standard.data(forKey: "journal") {
+        if let data = UserDefaults.standard.data(forKey: "word1") {
             let decoder = JSONDecoder()
-            do {
-                let records = try decoder.decode([Record].self, from: data)
-                journal = records
+            for record in journal {
+                do {
+                    let records = try decoder.decode(Record.self, from: data)
+                    
+                    journal.append(records)
+                }
+                catch {
+                    print("error \(error.localizedDescription)")
+                }
             }
-            catch {
-                print("error \(error.localizedDescription)")
-            }
+          
         }
     }
+    
+    
+//    private func readRecordsFromDisk() {
+//        if let data = UserDefaults.standard.data(forKey: "journal") {
+//            let decoder = JSONDecoder()
+//            do {
+//                let records = try decoder.decode([Record].self, from: data)
+//                journal = records
+//            }
+//            catch {
+//                print("error \(error.localizedDescription)")
+//            }
+//        }
+//    }
     
     
 }

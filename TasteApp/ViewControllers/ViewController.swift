@@ -54,12 +54,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
+        
+        
         self.transformation.transformTranslToLanguage(text: input , targetLang: appState.targetLanguage, sourceLang: appState.sourceLanguage) { t in
+            
+            print(self.appState.targetLanguage.rawValue)
+            print(self.appState.sourceLanguage.rawValue)
+
             
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
-            self.appState.createRecord(word1: self.wordInputTextField.text ?? "", word2: self.translationLabel.text ?? "")
+            
+            if self.appState.targetLanguage == .russian {
+                self.appState.createRecord(word1: self.wordInputTextField.text ?? "", word2: self.translationLabel.text ?? "")
+                print("ru")
+            } else {
+                self.appState.createRecord(word1: self.translationLabel.text ?? "", word2: self.wordInputTextField.text ?? "")
+                print("en")
+            }
+           
         }
     }
     
