@@ -23,17 +23,15 @@ class Record: Codable {
 class History : Codable {
     
     var journal: [Record] = []
-    var targ : Language = .english
-    var sour : Language = .russian
     
     init() {
-        self.readRecordsFromDisk()
+        self.readHistoryFromDisk()
     }
     
     func createRecordInHistory(w1: String, w2: String) {
         var r = Record(word1: w1, word2: w2)
         addRecordToHistory(rec: r)
-        saveRecordsToDisk()
+        saveHistoryToDisk()
     }
     
     func addRecordToHistory(rec: Record) {
@@ -43,19 +41,17 @@ class History : Codable {
     func removeRecordFromHistory(rec: Record) {
         guard let indexOfRecord = journal.firstIndex(where: {$0 === rec}) else { return  }
         journal.remove(at: indexOfRecord)
-        self.saveRecordsToDisk()
-        
+        self.saveHistoryToDisk()
     }
     
     func saveChangesInHistory(w1: String, w2: String, rec: Record) {
         guard let indexOfRecord = journal.firstIndex(where: {$0 === rec}) else { return  }
         journal[indexOfRecord].word1 = w1
         journal[indexOfRecord].word2 = w2        
-        self.saveRecordsToDisk()
-        
+        self.saveHistoryToDisk()
     }
     
-    func saveRecordsToDisk() {
+    func saveHistoryToDisk() {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(journal)
@@ -66,7 +62,7 @@ class History : Codable {
         }
     }
 
-    private func readRecordsFromDisk() {
+    private func readHistoryFromDisk() {
         if let data = UserDefaults.standard.data(forKey: "journal") {
             let decoder = JSONDecoder()
             do {

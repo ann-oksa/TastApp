@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var word1Textfield: UITextField!
     @IBOutlet weak var word2Textfield: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
@@ -18,7 +18,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         word1Textfield.text = chosenRecord?.word1
         word2Textfield.text = chosenRecord?.word2
         
@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
-
+    
     @IBAction func saveChangesClicked(_ sender: UIButton) {
         shared.history.saveChangesInHistory(w1: word1Textfield.text ?? "", w2: word2Textfield.text ?? "", rec: chosenRecord!)
         self.performSegue(withIdentifier: "unwindToHistory", sender: self)
@@ -37,5 +37,5 @@ class DetailsViewController: UIViewController {
         
     }
     
-
+    
 }

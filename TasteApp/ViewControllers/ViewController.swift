@@ -10,15 +10,12 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     var transformation = TranslationService()
-    
     var appState = AppState.shared
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
     @IBOutlet weak var translationLabel: UILabel!
     @IBOutlet weak var wordInputTextField: UITextField!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +28,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
         
-        
-        
-        
     }
     
     @objc func hideKeyboard() {
@@ -42,9 +36,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-                return false
+        return false
     }
-    
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
@@ -58,20 +51,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
-        
-        
         self.transformation.transformTranslToLanguage(text: input , targetLang: appState.targetLanguage, sourceLang: appState.sourceLanguage) { t in
-           
+            
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
+            //
             
             if self.appState.targetLanguage == .russian {
                 self.appState.createRecord(word1: self.wordInputTextField.text ?? "", word2: self.translationLabel.text ?? "")
             } else {
                 self.appState.createRecord(word1: self.translationLabel.text ?? "", word2: self.wordInputTextField.text ?? "")
             }
-           
+            
         }
     }
     
@@ -80,9 +72,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func gameClicked(_ sender: UIButton) {
-         performSegue(withIdentifier: "toGameVC", sender: nil)
+        performSegue(withIdentifier: "toGameVC", sender: nil)
         
-
+        
     }
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {

@@ -33,49 +33,47 @@ class GameViewController: UIViewController {
             let alert = UIAlertController(title: nil, message: "You don`t have words in history", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Back to main menu", style: .default) { (al) in
                 self.performSegue(withIdentifier: "unwindToMenu", sender: self)
-               
+                
             }
             alert.addAction(okButton)
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-    
     @IBAction func buttonFlip(_ sender: UIButton) {
-        
         if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
             if game.isOpen {
                 game.isOpen = false
                 game.someCardTitle = game.records[game.currentIndex].word2
-                buttonCard.setTitle(game.someCardTitle, for: .normal)
-                buttonCard.backgroundColor = .white
-                UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+                setButtonCardTitleAndAction()
             } else {
                 game.isOpen = true
                 game.someCardTitle = game.records[game.currentIndex].word1
-                buttonCard.setTitle(game.someCardTitle, for: .normal)
-                buttonCard.backgroundColor = .white
-                UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+                setButtonCardTitleAndAction()
             }
         } else {
             makeAlert()
         }
     }
     
+    func setButtonCardTitleAndAction(){
+        buttonCard.setTitle(game.someCardTitle, for: .normal)
+        buttonCard.backgroundColor = .white
+        UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    }
+    
     @IBAction func nextClicked(_ sender: UIButton) {
         previousButton.isHidden = false
         game.currentIndex += 1
-        if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
-            game.isOpen = false
-            game.someCardTitle = game.records[game.currentIndex].word2
-            buttonCard.setTitle(game.someCardTitle, for: .normal)
-        } else {
-            makeAlert()
-        }
+        chooseEnotherCard()
     }
     
     @IBAction func previousClicked(_ sender: UIButton) {
         game.currentIndex -= 1
+        chooseEnotherCard()
+    }
+    
+    func chooseEnotherCard(){
         if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
             game.isOpen = false
             game.someCardTitle = game.records[game.currentIndex].word2
@@ -84,7 +82,6 @@ class GameViewController: UIViewController {
             makeAlert()
         }
     }
-    
     
     func makeAlert() {
         let alert = UIAlertController(title: "You learned all the words!", message: "Do you want try again?", preferredStyle: .alert)

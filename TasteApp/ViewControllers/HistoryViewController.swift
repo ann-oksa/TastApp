@@ -14,10 +14,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var appState = AppState.shared
     var records : [Record] = AppState.shared.getRecords()
     var chosenRecord: Record?
+    var switchingStateOfLanguages = true
     
     
-    
-    var en = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,29 +26,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let sortButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(sortWordsInHistory))
         let switchTranslationButton = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(switchTranslationRuEn))
-  
+        
         navigationItem.rightBarButtonItems = [sortButton, switchTranslationButton]
-
+        
     }
     
     @objc func switchTranslationRuEn(){
-        
-        // менять местами колонки слов
-                if en {
-                    print("en true")
-                    en = false
-                } else {
-                    print("en false")
-                    en = true
-                }
+        if switchingStateOfLanguages {
+            switchingStateOfLanguages = false
+        } else {
+            switchingStateOfLanguages = true
+        }
+        tableView.reloadData()
         
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showPopover" {
-//            let popoverVC = segue.destination
-//            popoverVC.popoverPresentationController?.delegate = self
-//        }
-//    }
     
     @objc func sortWordsInHistory() {
         guard let popVC = storyboard?.instantiateViewController(identifier: "PopoverViewController") as? PopoverViewController else { return  }
@@ -78,7 +68,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         var record = records[indexPath.row]
-        cell.fillConfigure(record: record)
+        cell.fillConfigure(record: record, isEngLanguagesOnLeftSide: switchingStateOfLanguages)
         return cell
     }
     
@@ -119,14 +109,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             let destinationVC = segue.destination as! DetailsViewController
             destinationVC.chosenRecord = chosenRecord
         }
-}
+    }
     
     @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
     
-   
     
-
-
+    
+    
+    
 }

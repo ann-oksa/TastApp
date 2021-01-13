@@ -12,16 +12,15 @@ class AppState {
     static let shared = AppState()
     
     let history : History
+    let sorting = Sorting()
     var targetLanguage: Language = .russian
     var sourceLanguage: Language = .english
-    let sorting = Sorting()
-   
+    
     private init() {
         history = History()
     }
     
     func changeLanguageDependingOnTheIndex(index: Int) {
-        
         if index == 0 {
             targetLanguage = .russian
             sourceLanguage = .english
