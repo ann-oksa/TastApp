@@ -39,11 +39,6 @@ class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return arrayOfSorting.count
-//        if component == 0 {
-//                return 2
-//            } else {
-//                return arrayOfSorting.count
-//            }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

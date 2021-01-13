@@ -236,18 +236,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="192" translatesAutoresizingMaskIntoConstraints="NO" id="nzI-ja-r1A">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="21.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="176" translatesAutoresizingMaskIntoConstraints="NO" id="nzI-ja-r1A">
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="47.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8m-sL-aw5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="91.5" height="21.5"/>
-                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8m-sL-aw5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="89.5" height="47.5"/>
+                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jby-Yu-Y38">
-                                                            <rect key="frame" x="283.5" y="0.0" width="91.5" height="21.5"/>
-                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                                            <rect key="frame" x="265.5" y="0.0" width="89.5" height="47.5"/>
+                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -257,7 +257,7 @@
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="nzI-ja-r1A" secondAttribute="trailing" id="BeF-9L-BUe"/>
-                                            <constraint firstItem="nzI-ja-r1A" firstAttribute="leading" secondItem="LUB-A0-2bk" secondAttribute="leading" id="aaY-f8-RFg"/>
+                                            <constraint firstItem="nzI-ja-r1A" firstAttribute="leading" secondItem="LUB-A0-2bk" secondAttribute="leading" constant="20" id="aaY-f8-RFg"/>
                                             <constraint firstItem="nzI-ja-r1A" firstAttribute="top" secondItem="LUB-A0-2bk" secondAttribute="top" id="sNR-Wj-Bk3"/>
                                         </constraints>
                                         <connections>
@@ -326,7 +326,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-Qq-Td8">
                                 <rect key="frame" x="57" y="227" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Word:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyF-sB-frX">
@@ -346,7 +346,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79S-nA-2gZ">
                                 <rect key="frame" x="57" y="371" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOD-ep-7Ln">
@@ -369,9 +369,11 @@
                         <outlet property="saveChangesButton" destination="XOD-ep-7Ln" id="fKs-I2-k57"/>
                         <outlet property="word1Textfield" destination="cBw-Qq-Td8" id="7x2-qf-X7y"/>
                         <outlet property="word2Textfield" destination="79S-nA-2gZ" id="qv6-ai-9FE"/>
+                        <segue destination="9k1-Si-7Bf" kind="unwind" identifier="unwindToHistory" unwindAction="unwindToHistoryWithSegue:" id="RNP-vP-AFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp3-Ie-sVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="9k1-Si-7Bf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1944.8" y="-79.610194902548727"/>
         </scene>

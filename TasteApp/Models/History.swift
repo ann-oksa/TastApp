@@ -34,11 +34,25 @@ class History : Codable {
         var r = Record(word1: w1, word2: w2)
         addRecordToHistory(rec: r)
         saveRecordsToDisk()
-        print(r.date)
     }
     
     func addRecordToHistory(rec: Record) {
         journal.append(rec)
+    }
+    
+    func removeRecordFromHistory(rec: Record) {
+        guard let indexOfRecord = journal.firstIndex(where: {$0 === rec}) else { return  }
+        journal.remove(at: indexOfRecord)
+        self.saveRecordsToDisk()
+        
+    }
+    
+    func saveChangesInHistory(w1: String, w2: String, rec: Record) {
+        guard let indexOfRecord = journal.firstIndex(where: {$0 === rec}) else { return  }
+        journal[indexOfRecord].word1 = w1
+        journal[indexOfRecord].word2 = w2        
+        self.saveRecordsToDisk()
+        
     }
     
     func saveRecordsToDisk() {
@@ -64,45 +78,6 @@ class History : Codable {
             }
         }
     }
-    
-    
-    
-    //
-        
-    //    func saveRecordsToDisk() {
-    //        let encoder = JSONEncoder()
-    //        for record in journal {
-    //            do {
-    //                let data = try encoder.encode(record)
-    //                UserDefaults.standard.setValue(data, forKey: "word1")
-    //            }
-    //            catch {
-    //                print("some error \(error.localizedDescription)")
-    //            }
-    //        }
-    //
-    //    }
-    //
-    //    private func readRecordsFromDisk() {
-    //        if let data = UserDefaults.standard.data(forKey: "word1") {
-    //            let decoder = JSONDecoder()
-    //            for record in journal {
-    //                do {
-    //                    let records = try decoder.decode(Record.self, from: data)
-    //
-    //                    journal.append(records)
-    //                }
-    //                catch {
-    //                    print("error \(error.localizedDescription)")
-    //                }
-    //            }
-    //
-    //        }
-    //    }
-    //
-        
-    
-    
 }
 
 

@@ -30,6 +30,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
+        
+        
+        
+        
     }
     
     @objc func hideKeyboard() {
@@ -57,21 +61,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         self.transformation.transformTranslToLanguage(text: input , targetLang: appState.targetLanguage, sourceLang: appState.sourceLanguage) { t in
-            
-            print(self.appState.targetLanguage.rawValue)
-            print(self.appState.sourceLanguage.rawValue)
-
-            
+           
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
             
             if self.appState.targetLanguage == .russian {
                 self.appState.createRecord(word1: self.wordInputTextField.text ?? "", word2: self.translationLabel.text ?? "")
-                print("ru")
             } else {
                 self.appState.createRecord(word1: self.translationLabel.text ?? "", word2: self.wordInputTextField.text ?? "")
-                print("en")
             }
            
         }
@@ -82,10 +80,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func gameClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "toGameVC", sender: nil)
+         performSegue(withIdentifier: "toGameVC", sender: nil)
+        
+
     }
     
-    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        
+    }
     
     
 }
