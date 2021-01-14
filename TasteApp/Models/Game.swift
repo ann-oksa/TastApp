@@ -11,12 +11,12 @@ import UIKit
 class Game {
     
     var records : [Record] = []
-    var isOpen : Bool = false
+    var isCardOpen : Bool = false
     var someCardTitle: String = ""
-    var currentIndex : Int = 0
+    var currentIndexOfCard : Int = 0
     
-    func setCardTitle(rec: [Record]) -> String {
-        someCardTitle = rec[currentIndex].word1
+    func setCardTitle(record: [Record]) -> String {
+        someCardTitle = record[currentIndexOfCard].word1
         return someCardTitle
     }
     

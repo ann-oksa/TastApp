@@ -8,8 +8,8 @@
 import Foundation
 
 public enum KindOfSorting: String, CaseIterable {
-    case AZ = "A - Z"
-    case ZA = "Z - A"
+    case fromAtoZ = "A - Z"
+    case fromZtoA = "Z - A"
     case latest = "Latest"
     case earliest = "Earliest"
 }

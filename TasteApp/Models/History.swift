@@ -28,26 +28,26 @@ class History : Codable {
         self.readHistoryFromDisk()
     }
     
-    func createRecordInHistory(w1: String, w2: String) {
-        var r = Record(word1: w1, word2: w2)
-        addRecordToHistory(rec: r)
+    func createRecordInHistory(word1: String, word2: String) {
+        let record = Record(word1: word1, word2: word2)
+        addRecordToHistory(record: record)
         saveHistoryToDisk()
     }
     
-    func addRecordToHistory(rec: Record) {
-        journal.append(rec)
+    func addRecordToHistory(record: Record) {
+        journal.append(record)
     }
     
-    func removeRecordFromHistory(rec: Record) {
-        guard let indexOfRecord = journal.firstIndex(where: {$0 === rec}) else { return  }
+    func removeRecordFromHistory(record: Record) {
+        guard let indexOfRecord = journal.firstIndex(where: {$0 === record}) else { return  }
         journal.remove(at: indexOfRecord)
         self.saveHistoryToDisk()
     }
     
-    func saveChangesInHistory(w1: String, w2: String, rec: Record) {
-        guard let indexOfRecord = journal.firstIndex(where: {$0 === rec}) else { return  }
-        journal[indexOfRecord].word1 = w1
-        journal[indexOfRecord].word2 = w2        
+    func saveChangesInHistory(word1: String, word2: String, record: Record) {
+        guard let indexOfRecord = journal.firstIndex(where: {$0 === record}) else { return  }
+        journal[indexOfRecord].word1 = word1
+        journal[indexOfRecord].word2 = word2        
         self.saveHistoryToDisk()
     }
     
@@ -58,10 +58,10 @@ class History : Codable {
             UserDefaults.standard.setValue(data, forKey: "journal")
         }
         catch {
-            print("some error \(error.localizedDescription)")
+            print("class History -> func saveHistoryToDisk -> error in encoding data: \(error.localizedDescription)")
         }
     }
-
+    
     private func readHistoryFromDisk() {
         if let data = UserDefaults.standard.data(forKey: "journal") {
             let decoder = JSONDecoder()
@@ -70,8 +70,7 @@ class History : Codable {
                 journal = records
             }
             catch {
-                print("error \(error.localizedDescription)")
-            }
+                print("class History -> func saveHistoryToDisk -> error in decoding data: \(error.localizedDescription)")            }
         }
     }
 }

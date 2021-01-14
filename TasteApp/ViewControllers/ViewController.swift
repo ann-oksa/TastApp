@@ -25,12 +25,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
         self.wordInputTextField.delegate = self
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardWithTappingOnScreen))
         view.addGestureRecognizer(gestureRecognizer)
         
     }
     
-    @objc func hideKeyboard() {
+    @objc func hideKeyboardWithTappingOnScreen() {
         view.endEditing(true)
     }
     
@@ -44,26 +44,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func getTranslate(_ sender: UIButton) {
-        guard let input = wordInputTextField.text,
-              input.isEmpty == false else {
+        guard let inputText = wordInputTextField.text,
+              inputText.isEmpty == false else {
             return
         }
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
-        self.transformation.transformTranslationToLanguage(text: input , targetLanguage: appState.targetLanguage, sourceLanguage: appState.sourceLanguage) { t in
+        self.transformation.transformTranslationToLanguage(text: inputText , targetLanguage: appState.targetLanguage, sourceLanguage: appState.sourceLanguage) { translatedText in
             
-            self.translationLabel.text = t
+            self.translationLabel.text = translatedText
             self.indicatorOfDownloading.stopAnimating()
             self.indicatorOfDownloading.isHidden = true
-            //
-            
+            // Assignment for this variable made for right saving words (english words in one group, russian words in enother group)
+            var word1 = String()
+            var word2 = String()
             if self.appState.targetLanguage == .russian {
-                self.appState.createRecord(word1: self.wordInputTextField.text ?? "", word2: self.translationLabel.text ?? "")
+                word1 = self.wordInputTextField.text ?? ""
+                word2  = self.translationLabel.text ?? ""
             } else {
-                self.appState.createRecord(word1: self.translationLabel.text ?? "", word2: self.wordInputTextField.text ?? "")
+                word1 = self.translationLabel.text ?? ""
+                word2 = self.wordInputTextField.text ?? ""
             }
-            
+            self.appState.createRecord(word1: word1, word2: word2)
         }
     }
     

@@ -17,12 +17,12 @@ class TableViewCell: UITableViewCell {
         
     }
     
-    func fillConfigure(record: Record, isEngLanguagesOnLeftSide: Bool) {
+    func fillConfigure(record: Record, isEnglishLanguageOnLeftSide: Bool) {
         
         var leftWord : String
         var rightWord : String
         
-        if isEngLanguagesOnLeftSide {
+        if isEnglishLanguageOnLeftSide {
             leftWord = record.word1
             rightWord = record.word2
         } else {

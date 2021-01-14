@@ -20,15 +20,15 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        game.currentIndex = 0
-        game.isOpen = true
+        game.currentIndexOfCard = 0
+        game.isCardOpen = true
         game.records = shared.history.journal
         game.someCardTitle = ""
         previousButton.isHidden = true
-        checkRecords()
+        checkRecordsCountInHistory()
     }
     
-    func checkRecords(){
+    func checkRecordsCountInHistory(){
         if game.records.count == 0 {
             let alert = UIAlertController(title: nil, message: "You don`t have words in history", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Back to main menu", style: .default) { (al) in
@@ -41,14 +41,14 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func buttonFlip(_ sender: UIButton) {
-        if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
-            if game.isOpen {
-                game.isOpen = false
-                game.someCardTitle = game.records[game.currentIndex].word2
+        if  game.currentIndexOfCard < game.records.count && game.currentIndexOfCard >= 0 {
+            if game.isCardOpen {
+                game.isCardOpen = false
+                game.someCardTitle = game.records[game.currentIndexOfCard].word2
                 setButtonCardTitleAndAction()
             } else {
-                game.isOpen = true
-                game.someCardTitle = game.records[game.currentIndex].word1
+                game.isCardOpen = true
+                game.someCardTitle = game.records[game.currentIndexOfCard].word1
                 setButtonCardTitleAndAction()
             }
         } else {
@@ -64,19 +64,19 @@ class GameViewController: UIViewController {
     
     @IBAction func nextClicked(_ sender: UIButton) {
         previousButton.isHidden = false
-        game.currentIndex += 1
+        game.currentIndexOfCard += 1
         chooseEnotherCard()
     }
     
     @IBAction func previousClicked(_ sender: UIButton) {
-        game.currentIndex -= 1
+        game.currentIndexOfCard -= 1
         chooseEnotherCard()
     }
     
     func chooseEnotherCard(){
-        if  game.currentIndex < game.records.count && game.currentIndex >= 0 {
-            game.isOpen = false
-            game.someCardTitle = game.records[game.currentIndex].word2
+        if  game.currentIndexOfCard < game.records.count && game.currentIndexOfCard >= 0 {
+            game.isCardOpen = false
+            game.someCardTitle = game.records[game.currentIndexOfCard].word2
             buttonCard.setTitle(game.someCardTitle, for: .normal)
         } else {
             makeAlert()
@@ -87,8 +87,8 @@ class GameViewController: UIViewController {
         let alert = UIAlertController(title: "You learned all the words!", message: "Do you want try again?", preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.game.currentIndex = 0
-            self.game.someCardTitle = self.game.records[self.game.currentIndex].word2
+            self.game.currentIndexOfCard = 0
+            self.game.someCardTitle = self.game.records[self.game.currentIndexOfCard].word2
             self.buttonCard.setTitle(self.game.someCardTitle, for: .normal)
         }
         alert.addAction(cancelButton)

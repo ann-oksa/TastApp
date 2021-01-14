@@ -16,7 +16,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var chosenRecord: Record?
     var switchingStateOfLanguages = true
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,32 +23,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         title = "History"
         
-        let sortButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(sortWordsInHistory))
+        let sortButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(openSortMenuForWordsInHistory))
         let switchTranslationButton = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(switchTranslationRuEn))
         
         navigationItem.rightBarButtonItems = [sortButton, switchTranslationButton]
-        
-    }
-    
-    @objc func switchTranslationRuEn(){
-        if switchingStateOfLanguages {
-            switchingStateOfLanguages = false
-        } else {
-            switchingStateOfLanguages = true
-        }
-        tableView.reloadData()
-        
-    }
-    
-    @objc func sortWordsInHistory() {
-        guard let popVC = storyboard?.instantiateViewController(identifier: "PopoverViewController") as? PopoverViewController else { return  }
-        popVC.modalPresentationStyle =  .popover
-        let popOverVC = popVC.popoverPresentationController
-        popOverVC?.delegate = self
-        popOverVC?.barButtonItem = navigationItem.rightBarButtonItem
-        popVC.preferredContentSize = CGSize(width: 350, height: 150)
-        popVC.delegate = self
-        self.present(popVC, animated: true)
         
     }
     
@@ -67,19 +44,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        var record = records[indexPath.row]
-        cell.fillConfigure(record: record, isEngLanguagesOnLeftSide: switchingStateOfLanguages)
+        let record = records[indexPath.row]
+        cell.fillConfigure(record: record, isEnglishLanguageOnLeftSide: switchingStateOfLanguages)
         return cell
-    }
-    
-    func sortDictionary(method: KindOfSorting) {
-        switch method {
-        case .AZ: records.sort(by: {$1.word1 > $0.word1})
-        case .ZA: records.sort(by: {$1.word1 < $0.word1})
-        case .earliest: records.sort(by: {$1.date > $0.date})
-        case .latest: records.sort(by: {$1.date < $0.date})
-        }
-        tableView.reloadData()
     }
     
     func chozenMethodOfSorting(method: KindOfSorting) {
@@ -93,7 +60,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            appState.history.removeRecordFromHistory(rec: records[indexPath.row])
+            appState.history.removeRecordFromHistory(record: records[indexPath.row])
             self.records = AppState.shared.getRecords()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -114,9 +81,39 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
+}
+
+extension HistoryViewController {
     
+    func sortDictionary(method: KindOfSorting) {
+        switch method {
+        case .fromAtoZ: records.sort(by: {$1.word1 > $0.word1})
+        case .fromZtoA: records.sort(by: {$1.word1 < $0.word1})
+        case .earliest: records.sort(by: {$1.date > $0.date})
+        case .latest: records.sort(by: {$1.date < $0.date})
+        }
+        tableView.reloadData()
+    }
     
+    @objc func switchTranslationRuEn(){
+        if switchingStateOfLanguages {
+            switchingStateOfLanguages = false
+        } else {
+            switchingStateOfLanguages = true
+        }
+        tableView.reloadData()
+        
+    }
     
-    
-    
+    @objc func openSortMenuForWordsInHistory() {
+        guard let popVC = storyboard?.instantiateViewController(identifier: "PopoverViewController") as? PopoverViewController else { return  }
+        popVC.modalPresentationStyle =  .popover
+        let popOverVC = popVC.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.barButtonItem = navigationItem.rightBarButtonItem
+        popVC.preferredContentSize = CGSize(width: 350, height: 150)
+        popVC.delegate = self
+        self.present(popVC, animated: true)
+        
+    }
 }

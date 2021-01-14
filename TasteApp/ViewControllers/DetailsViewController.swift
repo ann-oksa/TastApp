@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func saveChangesClicked(_ sender: UIButton) {
-        shared.history.saveChangesInHistory(w1: word1Textfield.text ?? "", w2: word2Textfield.text ?? "", rec: chosenRecord!)
+        shared.history.saveChangesInHistory(word1: word1Textfield.text ?? "", word2: word2Textfield.text ?? "", record: chosenRecord!)
         self.performSegue(withIdentifier: "unwindToHistory", sender: self)
         
         

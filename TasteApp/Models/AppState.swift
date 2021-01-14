@@ -35,7 +35,7 @@ class AppState {
     }
     
     func createRecord(word1: String, word2: String) {
-        history.createRecordInHistory(w1: word1, w2: word2)
+        history.createRecordInHistory(word1: word1, word2: word2)
     }
     
     

@@ -15,7 +15,7 @@ public enum Language: String, Codable {
 
 struct CreatingURLManager {
     
-    func createURLComponents(text: String, targetLang: Language, sourseLang: Language) -> URL? {
+    func createURLComponents(text: String, targetLanguage: Language, sourseLanguage: Language) -> URL? {
         
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -23,8 +23,8 @@ struct CreatingURLManager {
         urlComponents.path = "/translate_a/single"
         urlComponents.queryItems = [
             URLQueryItem(name: "client", value: "gtx"),
-            URLQueryItem(name: "sl", value: sourseLang.rawValue),
-            URLQueryItem(name: "tl", value: targetLang.rawValue ),
+            URLQueryItem(name: "sl", value: sourseLanguage.rawValue),
+            URLQueryItem(name: "tl", value: targetLanguage.rawValue ),
             URLQueryItem(name: "dt", value: "t"),
             URLQueryItem(name: "q", value: text) ]
         let urlString = urlComponents.url?.absoluteURL

@@ -14,7 +14,7 @@ class TranslationService {
     func transformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language,  completionHandler: @escaping (String) -> Void )  {
         
         self.networkManager.translate(text: text, targetLanguage: targetLanguage, sourceLanguage: sourceLanguage) { translation in
-            var result = ""
+            var result : String = ""
             switch translation {
             case .failure(.cantCreateURL) :
                 print("class TranslationService -> func transformTranslationToLanguage -> switch translation -> case failure: can`t create URL from \(translation)")
@@ -22,8 +22,8 @@ class TranslationService {
                 print("class TranslationService -> func transformTranslationToLanguage -> switch translation -> case failure: no data from \(translation)")
             case .success(let some ) :
                 
-// This part of code may looks weird because we use special file GoogleTranslateAPIJSON
-//  It`s a hack to use a google api for free, more info you can find in this file and enum PurpleTranslation and TranslationTranslation
+                // This part of code may looks weird because we use special file GoogleTranslateAPIJSON
+                //  It`s a hack to use a google api for free, more info you can find in this file and enum PurpleTranslation and TranslationTranslation
                 switch some[0] {
                 case .unionArrayArray(let array) :
                     switch array[0][0] {
@@ -34,11 +34,11 @@ class TranslationService {
                 default:
                     print("class TranslationService -> func transformTranslationToLanguage -> switch translation -> switch case success-> case default: can`t extract translation from \(translation)")
                 }
-               
+                
             default: print("class TranslationService -> func transformTranslationToLanguage -> switch translation -> case default: can`t extract translation from \(translation)")
             }
             
-// We can`t avoid this yellow warning and optional casting "as? String" because of exсeption "Initializer for conditional binding must have Optional type, not 'String'"
+            // We can`t avoid this yellow warning and optional casting "as? String" because of exсeption "Initializer for conditional binding must have Optional type, not 'String'"
             if let translation = TranslationOfWord(word: result, language: .empty).word as? String {
                 DispatchQueue.main.async {
                     completionHandler(translation)
