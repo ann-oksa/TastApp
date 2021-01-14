@@ -17,9 +17,9 @@ struct GoogleTranslateAPIManager {
     
     var createdUrl = CreatingURLManager()
     
-    func translate(text: String, targetLang: Language, sourceLang: Language, completionHandler: @escaping (Result<Translation, GoogleTranslateAPIError>) -> Void ) {
+    func translate(text: String, targetLanguage: Language, sourceLanguage: Language, completionHandler: @escaping (Result<Translation, GoogleTranslateAPIError>) -> Void ) {
         
-        guard let url = createdUrl.createURLComponents(text: text, targetLang: targetLang, sourseLang: sourceLang) else { return }
+        guard let url = createdUrl.createURLComponents(text: text, targetLang: targetLanguage, sourseLang: sourceLanguage) else { return }
         
         let session = URLSession.shared
         

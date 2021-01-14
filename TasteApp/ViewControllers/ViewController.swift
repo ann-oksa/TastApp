@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
-        self.transformation.transformTranslToLanguage(text: input , targetLang: appState.targetLanguage, sourceLang: appState.sourceLanguage) { t in
+        self.transformation.transformTranslationToLanguage(text: input , targetLanguage: appState.targetLanguage, sourceLanguage: appState.sourceLanguage) { t in
             
             self.translationLabel.text = t
             self.indicatorOfDownloading.stopAnimating()
