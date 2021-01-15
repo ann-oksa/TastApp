@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     
     var game = Game()
     let shared = AppState.shared
+    let constants = Constants()
     
     
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class GameViewController: UIViewController {
         if game.records.count == 0 {
             let alert = UIAlertController(title: nil, message: "You don`t have words in history", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Back to main menu", style: .default) { (al) in
-                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+                self.performSegue(withIdentifier: self.constants.unwindSegueFromGameToTranslation, sender: self)
                 
             }
             alert.addAction(okButton)

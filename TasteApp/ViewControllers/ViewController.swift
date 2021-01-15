@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var transformation = TranslationService()
     var appState = AppState.shared
+    let constants = Constants()
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
@@ -71,11 +72,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "toHistoryVC", sender: nil)
+        performSegue(withIdentifier: constants.identifierToHistory, sender: nil)
     }
     
     @IBAction func gameClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "toGameVC", sender: nil)
+        performSegue(withIdentifier: constants.identifierToGame, sender: nil)
         
         
     }

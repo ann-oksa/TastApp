@@ -14,7 +14,7 @@ class TranslationService {
     func transformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language,  completionHandler: @escaping (String) -> Void )  {
         
         self.networkManager.translate(text: text, targetLanguage: targetLanguage, sourceLanguage: sourceLanguage) { translation in
-            var result : String = ""
+            var result = String()
             switch translation {
             case .failure(.cantCreateURL) :
                 print("class TranslationService -> func transformTranslationToLanguage -> switch translation -> case failure: can`t create URL from \(translation)")

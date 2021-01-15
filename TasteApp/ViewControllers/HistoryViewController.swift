@@ -15,6 +15,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var records : [Record] = AppState.shared.getRecords()
     var chosenRecord: Record?
     var switchingStateOfLanguages = true
+    let constants = Constants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +44,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: constants.cellInHistory, for: indexPath) as! TableViewCell
         let record = records[indexPath.row]
-        cell.fillConfigure(record: record, isEnglishLanguageOnLeftSide: switchingStateOfLanguages)
+        cell.fill(record: record, isEnglishLanguageOnLeftSide: switchingStateOfLanguages)
         return cell
     }
     
-    func chozenMethodOfSorting(method: KindOfSorting) {
+    func selectSortingMethod(method: KindOfSorting) {
         sortDictionary(method: method)
     }
     
@@ -68,12 +69,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         chosenRecord = records[indexPath.row]
-        performSegue(withIdentifier: "toDetailsVC", sender: self)
+        performSegue(withIdentifier: constants.identifierToDetails, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailsVC" {
-            let destinationVC = segue.destination as! DetailsViewController
+        if segue.identifier == constants.identifierToDetails {
+            guard let destinationVC = segue.destination as? DetailsViewController else { return }
             destinationVC.chosenRecord = chosenRecord
         }
     }
@@ -96,17 +97,13 @@ extension HistoryViewController {
     }
     
     @objc func switchTranslationRuEn(){
-        if switchingStateOfLanguages {
-            switchingStateOfLanguages = false
-        } else {
-            switchingStateOfLanguages = true
-        }
+        switchingStateOfLanguages = !switchingStateOfLanguages
         tableView.reloadData()
         
     }
     
     @objc func openSortMenuForWordsInHistory() {
-        guard let popVC = storyboard?.instantiateViewController(identifier: "PopoverViewController") as? PopoverViewController else { return  }
+        guard let popVC = storyboard?.instantiateViewController(identifier: constants.identifierForPopover) as? PopoverViewController else { return  }
         popVC.modalPresentationStyle =  .popover
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self

@@ -17,7 +17,7 @@ class TableViewCell: UITableViewCell {
         
     }
     
-    func fillConfigure(record: Record, isEnglishLanguageOnLeftSide: Bool) {
+    func fill(record: Record, isEnglishLanguageOnLeftSide: Bool) {
         
         var leftWord : String
         var rightWord : String

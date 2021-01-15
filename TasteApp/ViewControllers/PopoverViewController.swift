@@ -9,7 +9,7 @@ import UIKit
 
 protocol SortPickerDelegate {
     
-    func chozenMethodOfSorting(method: KindOfSorting)
+    func selectSortingMethod(method: KindOfSorting)
     
 }
 
@@ -46,7 +46,7 @@ class PopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.chozenMethodOfSorting(method: arrayOfSorting[row])
+        delegate?.selectSortingMethod(method: arrayOfSorting[row])
     }
     
     

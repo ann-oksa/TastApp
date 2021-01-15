@@ -216,7 +216,7 @@
                         <outlet property="buttonCard" destination="mQP-3P-jQA" id="iGE-Mo-Jen"/>
                         <outlet property="nextButton" destination="vMC-hG-8Ah" id="TDS-wP-cWF"/>
                         <outlet property="previousButton" destination="zyv-Am-ieh" id="2px-mk-qXm"/>
-                        <segue destination="Nko-y6-2JH" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="MfW-dZ-Xpo"/>
+                        <segue destination="Nko-y6-2JH" kind="unwind" identifier="backToTranslationVC" unwindAction="unwindToMenuWithSegue:" id="MfW-dZ-Xpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCz-SD-Wq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -236,7 +236,7 @@
                                 <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="55" id="LUB-A0-2bk" customClass="TableViewCell" customModule="TasteApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellInHistoryWithWordAndTranslation" rowHeight="55" id="LUB-A0-2bk" customClass="TableViewCell" customModule="TasteApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LUB-A0-2bk" id="PTs-l4-wt1">
@@ -381,7 +381,7 @@
                         <outlet property="saveChangesButton" destination="XOD-ep-7Ln" id="fKs-I2-k57"/>
                         <outlet property="word1Textfield" destination="cBw-Qq-Td8" id="7x2-qf-X7y"/>
                         <outlet property="word2Textfield" destination="79S-nA-2gZ" id="qv6-ai-9FE"/>
-                        <segue destination="9k1-Si-7Bf" kind="unwind" identifier="unwindToHistory" unwindAction="unwindToHistoryWithSegue:" id="RNP-vP-AFT"/>
+                        <segue destination="9k1-Si-7Bf" kind="unwind" identifier="backToHistoryVC" unwindAction="unwindToHistoryWithSegue:" id="RNP-vP-AFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp3-Ie-sVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

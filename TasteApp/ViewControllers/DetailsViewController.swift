@@ -15,6 +15,7 @@ class DetailsViewController: UIViewController {
     
     var chosenRecord : Record?
     var shared = AppState.shared
+    let constants = Constants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,8 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func saveChangesClicked(_ sender: UIButton) {
-        shared.history.saveChangesInHistory(word1: word1Textfield.text ?? "", word2: word2Textfield.text ?? "", record: chosenRecord!)
-        self.performSegue(withIdentifier: "unwindToHistory", sender: self)
+        shared.history.saveChangesInHistory(word1: word1Textfield.text ?? "", word2: word2Textfield.text ?? "", record: chosenRecord ?? Record(word1: "", word2: ""))
+        self.performSegue(withIdentifier: constants.unwindSegueFromDetailsToHistory, sender: self)
         
         
     }
