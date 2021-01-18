@@ -7,33 +7,67 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
-    
+class GameViewController: UIViewController, GameDelegate {
+   
     @IBOutlet weak var buttonCard: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
-    var game = Game()
-    let shared = AppState.shared
-    let constants = Constants()
-    
+    let gameViewModel = GameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        game.currentIndexOfCard = 0
-        game.isCardOpen = true
-        game.records = shared.history.journal
-        game.someCardTitle = ""
+
+        gameViewModel.delegate =  self
+        gameViewModel.setValueForNewGame()
         previousButton.isHidden = true
         checkRecordsCountInHistory()
+        
+    }
+    
+    @IBAction func buttonFlip(_ sender: UIButton) {
+        gameViewModel.buttonFlip()
+    }
+    
+    @IBAction func nextClicked(_ sender: UIButton) {
+        previousButton.isHidden = false
+        gameViewModel.nextClicked()
+        gameViewModel.chooseEnotherCard()
+    }
+    
+    @IBAction func previousClicked(_ sender: UIButton) {
+        gameViewModel.previousClicked()
+        gameViewModel.chooseEnotherCard()
+    }
+    
+    //tnterred parametrs
+    func setButtonCardTitleAndAction() {
+        setTitleForButtonCard(with: gameViewModel.game.someCardTitle)
+        buttonCard.backgroundColor = .white
+        UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    }
+    
+    func makeAlert() {
+        let alert = UIAlertController(title: "You learned all the words!", message: "Do you want try again?", preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+            //refactoring???
+            self.gameViewModel.game.currentIndexOfCard = 0
+            self.gameViewModel.game.someCardTitle = self.gameViewModel.game.records[self.gameViewModel.game.currentIndexOfCard].word2
+            //
+            self.setTitleForButtonCard(with: self.gameViewModel.game.someCardTitle)
+        }
+        alert.addAction(cancelButton)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func checkRecordsCountInHistory(){
-        if game.records.count == 0 {
+        if gameViewModel.game.records.count == 0 {
             let alert = UIAlertController(title: nil, message: "You don`t have words in history", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Back to main menu", style: .default) { (al) in
-                self.performSegue(withIdentifier: self.constants.unwindSegueFromGameToTranslation, sender: self)
+                self.performSegue(withIdentifier: self.gameViewModel.constants.unwindSegueFromGameToTranslation, sender: self)
                 
             }
             alert.addAction(okButton)
@@ -41,60 +75,8 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func buttonFlip(_ sender: UIButton) {
-        if  game.currentIndexOfCard < game.records.count && game.currentIndexOfCard >= 0 {
-            if game.isCardOpen {
-                game.isCardOpen = false
-                game.someCardTitle = game.records[game.currentIndexOfCard].word2
-                setButtonCardTitleAndAction()
-            } else {
-                game.isCardOpen = true
-                game.someCardTitle = game.records[game.currentIndexOfCard].word1
-                setButtonCardTitleAndAction()
-            }
-        } else {
-            makeAlert()
-        }
-    }
-    
-    func setButtonCardTitleAndAction(){
-        buttonCard.setTitle(game.someCardTitle, for: .normal)
-        buttonCard.backgroundColor = .white
-        UIView.transition(with: buttonCard, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-    }
-    
-    @IBAction func nextClicked(_ sender: UIButton) {
-        previousButton.isHidden = false
-        game.currentIndexOfCard += 1
-        chooseEnotherCard()
-    }
-    
-    @IBAction func previousClicked(_ sender: UIButton) {
-        game.currentIndexOfCard -= 1
-        chooseEnotherCard()
-    }
-    
-    func chooseEnotherCard(){
-        if  game.currentIndexOfCard < game.records.count && game.currentIndexOfCard >= 0 {
-            game.isCardOpen = false
-            game.someCardTitle = game.records[game.currentIndexOfCard].word2
-            buttonCard.setTitle(game.someCardTitle, for: .normal)
-        } else {
-            makeAlert()
-        }
-    }
-    
-    func makeAlert() {
-        let alert = UIAlertController(title: "You learned all the words!", message: "Do you want try again?", preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.game.currentIndexOfCard = 0
-            self.game.someCardTitle = self.game.records[self.game.currentIndexOfCard].word2
-            self.buttonCard.setTitle(self.game.someCardTitle, for: .normal)
-        }
-        alert.addAction(cancelButton)
-        alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
+    func setTitleForButtonCard(with title: String) {
+        buttonCard.setTitle(title, for: .normal)
     }
     
 }

@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class TranslationViewController: UIViewController, UITextFieldDelegate {
     
     var transformation = TranslationService()
     var appState = AppState.shared
-    let constants = Constants()
+    let constants = IdentifiersForSegue()
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!

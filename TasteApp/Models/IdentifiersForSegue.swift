@@ -7,21 +7,8 @@
 
 import Foundation
 
-//protocol ReusableConstants {
-//    static var MyidentifierToHistory: String { get }
-//   // static var identifierToGame: String { get }
-//
-//}
-//
-//extension ReusableConstants {
-//
-//    static var MyidentifierToHistory: String {
-//        return String(describing: self)
-//    }
-//}
-//extension ViewController: ReusableConstants {}
 
-class Constants {
+class IdentifiersForSegue {
     let identifierToHistory = "toHistoryVC"
     let identifierToGame = "toGameVC"
     let cellInHistory = "cellInHistoryWithWordAndTranslation"

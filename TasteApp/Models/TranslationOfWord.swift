@@ -10,7 +10,8 @@ import Foundation
 class TranslationOfWord {
  
     let language: Language
-    var word: String
+    var word :  String
+    
     init(word: String, language: Language) {
         self.word = word
         self.language = language
