@@ -7,11 +7,9 @@
 
 import UIKit
 
-class TranslationViewController: UIViewController, UITextFieldDelegate {
+class TranslationViewController: UIViewController, UITextFieldDelegate, TranslationDelegate {
     
-    var transformation = TranslationService()
-    var appState = AppState.shared
-    let constants = IdentifiersForSegue()
+    let translationViewModel = TranslationViewModel()
     
     @IBOutlet weak var changingLanguageController: UISegmentedControl!
     @IBOutlet weak var indicatorOfDownloading: UIActivityIndicatorView!
@@ -21,10 +19,11 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        translationViewModel.delegate = self
+        self.wordInputTextField.delegate = self
         indicatorOfDownloading.isHidden = true
         changingLanguageController.selectedSegmentIndex = 0
-        appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
-        self.wordInputTextField.delegate = self
+        translationViewModel.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardWithTappingOnScreen))
         view.addGestureRecognizer(gestureRecognizer)
@@ -41,7 +40,7 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
-        appState.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
+        translationViewModel.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
     }
     
     @IBAction func getTranslate(_ sender: UIButton) {
@@ -52,39 +51,40 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
-        self.transformation.transformTranslationToLanguage(text: inputText , targetLanguage: appState.targetLanguage, sourceLanguage: appState.sourceLanguage) { translatedText in
-            
-            self.translationLabel.text = translatedText
-            self.indicatorOfDownloading.stopAnimating()
-            self.indicatorOfDownloading.isHidden = true
-            // Assignment for this variable made for right saving words (english words in one group, russian words in enother group)
-            var word1 = String()
-            var word2 = String()
-            if self.appState.targetLanguage == .russian {
-                word1 = self.wordInputTextField.text ?? ""
-                word2  = self.translationLabel.text ?? ""
-            } else {
-                word1 = self.translationLabel.text ?? ""
-                word2 = self.wordInputTextField.text ?? ""
-            }
-            self.appState.createRecord(word1: word1, word2: word2)
-        }
+        translationViewModel.newtransformTranslationToLanguage(text: inputText, targetLanguage: translationViewModel.appState.targetLanguage, sourceLanguage: translationViewModel.appState.sourceLanguage)
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: constants.identifierToHistory, sender: nil)
+        performSegue(withIdentifier: translationViewModel.constants.identifierToHistory, sender: nil)
     }
     
     @IBAction func gameClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: constants.identifierToGame, sender: nil)
-        
-        
+        performSegue(withIdentifier: translationViewModel.constants.identifierToGame, sender: nil)
     }
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
         
     }
     
+    func setValuesForOutlets(text: String) {
+        self.translationLabel.text = text
+        self.indicatorOfDownloading.stopAnimating()
+        self.indicatorOfDownloading.isHidden = true
+    }
     
+    func setValuesOfWordsDependingOnLanguages() {
+        // Assignment for this variable made for right saving words (english words in one group, russian words in enother group)
+        var word1 = String()
+        var word2 = String()
+        
+        if translationViewModel.appState.targetLanguage == .russian {
+            word1 = self.wordInputTextField.text ?? ""
+            word2  = self.translationLabel.text ?? ""
+        } else {
+            word1 = self.translationLabel.text ?? ""
+            word2 = self.wordInputTextField.text ?? ""
+        }
+        translationViewModel.createRecord(word1: word1, word2: word2)
+    }
 }
 

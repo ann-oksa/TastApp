@@ -11,11 +11,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-    var appState = AppState.shared
-    var records : [Record] = AppState.shared.getRecords()
+//    var appState = AppState.shared
+//    var records : [Record] = AppState.shared.getRecords()
     var chosenRecord: Record?
-    var switchingStateOfLanguages = true
-    let constants = IdentifiersForSegue()
+//    var switchingStateOfLanguages = true
+//    let constants = IdentifiersForSegue()
+    
+    let historyViewModel = HistoryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+        return historyViewModel.records.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -44,12 +46,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: constants.cellInHistory, for: indexPath) as? CellForRecord
-        let record = records[indexPath.row]
-        cell?.fill(record: record, isEnglishLanguageOnLeftSide: switchingStateOfLanguages)
+        let cell = tableView.dequeueReusableCell(withIdentifier: historyViewModel.constants.cellInHistory, for: indexPath) as? CellForRecord
+        let record = historyViewModel.records[indexPath.row]
+        cell?.fill(record: record, isEnglishLanguageOnLeftSide: historyViewModel.switchingStateOfLanguages)
         return cell ?? UITableViewCell()
     }
     
+    //ref
     func selectSortingMethod(method: KindOfSorting) {
         sortDictionary(method: method)
     }
@@ -61,19 +64,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            appState.history.removeRecordFromHistory(record: records[indexPath.row])
-            self.records = AppState.shared.getRecords()
+            historyViewModel.appState.history.removeRecordFromHistory(record: historyViewModel.records[indexPath.row])
+           // self.records = AppState.shared.getRecords()
+            self.historyViewModel.records  = historyViewModel.appState.getRecords()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        chosenRecord = records[indexPath.row]
-        performSegue(withIdentifier: constants.identifierToDetails, sender: self)
+        chosenRecord = historyViewModel.records[indexPath.row]
+        performSegue(withIdentifier: historyViewModel.constants.identifierToDetails, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == constants.identifierToDetails {
+        if segue.identifier == historyViewModel.constants.identifierToDetails {
             guard let destinationVC = segue.destination as? DetailsViewController else { return }
             destinationVC.chosenRecord = chosenRecord
         }
@@ -82,28 +86,30 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
+    
+    func sortDictionary(method: KindOfSorting) {
+        switch method {
+        case .fromAtoZ: historyViewModel.records.sort(by: {$1.word1 > $0.word1})
+        case .fromZtoA: historyViewModel.records.sort(by: {$1.word1 < $0.word1})
+        case .earliest: historyViewModel.records.sort(by: {$1.date > $0.date})
+        case .latest: historyViewModel.records.sort(by: {$1.date < $0.date})
+        }
+        tableView.reloadData()
+    }
 }
 
 extension HistoryViewController {
     
-    func sortDictionary(method: KindOfSorting) {
-        switch method {
-        case .fromAtoZ: records.sort(by: {$1.word1 > $0.word1})
-        case .fromZtoA: records.sort(by: {$1.word1 < $0.word1})
-        case .earliest: records.sort(by: {$1.date > $0.date})
-        case .latest: records.sort(by: {$1.date < $0.date})
-        }
-        tableView.reloadData()
-    }
+    
     
     @objc func switchTranslationRuEn(){
-        switchingStateOfLanguages = !switchingStateOfLanguages
+        historyViewModel.switchStateOfLanguage()
         tableView.reloadData()
         
     }
     
     @objc func openSortMenuForWordsInHistory() {
-        guard let popVC = storyboard?.instantiateViewController(identifier: constants.identifierForPopover) as? PopoverViewController else { return  }
+        guard let popVC = storyboard?.instantiateViewController(identifier: historyViewModel.constants.identifierForPopover) as? PopoverViewController else { return  }
         popVC.modalPresentationStyle =  .popover
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self

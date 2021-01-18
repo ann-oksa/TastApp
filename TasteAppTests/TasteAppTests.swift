@@ -117,10 +117,13 @@ class TasteAppTests: XCTestCase {
     
     func testButtonFlip() throws {
         let gameVM = GameViewModel()
+        gameVM.game.records = shared.history.journal
+        gameVM.delegate = nil
         gameVM.nextClicked()
         gameVM.game.isCardOpen = true
         gameVM.buttonFlip()
         let result = gameVM.game.someCardTitle
+        print("s")
         XCTAssertEqual(result, "крыса", "wrong")
     }
 

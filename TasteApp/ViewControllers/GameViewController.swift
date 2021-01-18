@@ -39,6 +39,7 @@ class GameViewController: UIViewController, GameDelegate {
     @IBAction func previousClicked(_ sender: UIButton) {
         gameViewModel.previousClicked()
         gameViewModel.chooseEnotherCard()
+        
     }
     
     //tnterred parametrs

@@ -30,10 +30,20 @@
 		CABEA9932574DDCC005406F2 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA9922574DDCC005406F2 /* TranslationService.swift */; };
 		CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */; };
 		CAD1D00925B56E1A00D0451F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D00825B56E1A00D0451F /* GameViewModel.swift */; };
+		CAD1D01625B5BF4100D0451F /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D01525B5BF4100D0451F /* GameViewModelTests.swift */; };
+		CAD1D02425B5CB4500D0451F /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */; };
+		CAD1D02925B5D69800D0451F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		CA04C7B425B17C0A004B06E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CABEA8A22563CEB4005406F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CABEA8A92563CEB4005406F2;
+			remoteInfo = TasteApp;
+		};
+		CAD1D01825B5BF4100D0451F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CABEA8A22563CEB4005406F2 /* Project object */;
 			proxyType = 1;
@@ -70,6 +80,11 @@
 		CABEA9922574DDCC005406F2 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		CABEA99725766589005406F2 /* GoogleTranslateAPIJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPIJSON.swift; sourceTree = "<group>"; };
 		CAD1D00825B56E1A00D0451F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		CAD1D01325B5BF4100D0451F /* GameViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD1D01525B5BF4100D0451F /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
+		CAD1D01725B5BF4100D0451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
+		CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CABEA8A72563CEB4005406F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAD1D01025B5BF4100D0451F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,6 +150,7 @@
 			children = (
 				CABEA8AC2563CEB4005406F2 /* TasteApp */,
 				CA04C7B025B17C0A004B06E3 /* TasteAppTests */,
+				CAD1D01425B5BF4100D0451F /* GameViewModelTests */,
 				CABEA8AB2563CEB4005406F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +160,7 @@
 			children = (
 				CABEA8AA2563CEB4005406F2 /* TasteApp.app */,
 				CA04C7AF25B17C0A004B06E3 /* TasteAppTests.xctest */,
+				CAD1D01325B5BF4100D0451F /* GameViewModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,8 +199,19 @@
 			isa = PBXGroup;
 			children = (
 				CAD1D00825B56E1A00D0451F /* GameViewModel.swift */,
+				CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */,
+				CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CAD1D01425B5BF4100D0451F /* GameViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				CAD1D01525B5BF4100D0451F /* GameViewModelTests.swift */,
+				CAD1D01725B5BF4100D0451F /* Info.plist */,
+			);
+			path = GameViewModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +252,24 @@
 			productReference = CABEA8AA2563CEB4005406F2 /* TasteApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CAD1D01225B5BF4100D0451F /* GameViewModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAD1D01A25B5BF4100D0451F /* Build configuration list for PBXNativeTarget "GameViewModelTests" */;
+			buildPhases = (
+				CAD1D00F25B5BF4100D0451F /* Sources */,
+				CAD1D01025B5BF4100D0451F /* Frameworks */,
+				CAD1D01125B5BF4100D0451F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAD1D01925B5BF4100D0451F /* PBXTargetDependency */,
+			);
+			name = GameViewModelTests;
+			productName = GameViewModelTests;
+			productReference = CAD1D01325B5BF4100D0451F /* GameViewModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +285,10 @@
 					};
 					CABEA8A92563CEB4005406F2 = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					CAD1D01225B5BF4100D0451F = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = CABEA8A92563CEB4005406F2;
 					};
 				};
 			};
@@ -250,6 +307,7 @@
 			targets = (
 				CABEA8A92563CEB4005406F2 /* TasteApp */,
 				CA04C7AE25B17C0A004B06E3 /* TasteAppTests */,
+				CAD1D01225B5BF4100D0451F /* GameViewModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +330,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CAD1D01125B5BF4100D0451F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -287,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD1D02425B5CB4500D0451F /* TranslationViewModel.swift in Sources */,
 				CABEA8B22563CEB4005406F2 /* TranslationViewController.swift in Sources */,
 				CA43878C258A1C20001218A9 /* Sorting.swift in Sources */,
 				CABEA8AE2563CEB4005406F2 /* AppDelegate.swift in Sources */,
@@ -299,6 +365,7 @@
 				CA61AC0F25ADB2D2002FD7AC /* DetailsViewController.swift in Sources */,
 				CA6F64F12577D95700117799 /* HistoryViewController.swift in Sources */,
 				CA33590A25811EFD00C04AD6 /* AppState.swift in Sources */,
+				CAD1D02925B5D69800D0451F /* HistoryViewModel.swift in Sources */,
 				CABEA8B02563CEB4005406F2 /* SceneDelegate.swift in Sources */,
 				CABEA9932574DDCC005406F2 /* TranslationService.swift in Sources */,
 				CA6F64F62577DD2800117799 /* CellForRecord.swift in Sources */,
@@ -309,6 +376,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CAD1D00F25B5BF4100D0451F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAD1D01625B5BF4100D0451F /* GameViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -316,6 +391,11 @@
 			isa = PBXTargetDependency;
 			target = CABEA8A92563CEB4005406F2 /* TasteApp */;
 			targetProxy = CA04C7B425B17C0A004B06E3 /* PBXContainerItemProxy */;
+		};
+		CAD1D01925B5BF4100D0451F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CABEA8A92563CEB4005406F2 /* TasteApp */;
+			targetProxy = CAD1D01825B5BF4100D0451F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -537,6 +617,48 @@
 			};
 			name = Release;
 		};
+		CAD1D01B25B5BF4100D0451F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y8KU8W72YT;
+				INFOPLIST_FILE = GameViewModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oksanichenkoann.GameViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TasteApp.app/TasteApp";
+			};
+			name = Debug;
+		};
+		CAD1D01C25B5BF4100D0451F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y8KU8W72YT;
+				INFOPLIST_FILE = GameViewModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oksanichenkoann.GameViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TasteApp.app/TasteApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,6 +685,15 @@
 			buildConfigurations = (
 				CABEA8BF2563CEB8005406F2 /* Debug */,
 				CABEA8C02563CEB8005406F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAD1D01A25B5BF4100D0451F /* Build configuration list for PBXNativeTarget "GameViewModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAD1D01B25B5BF4100D0451F /* Debug */,
+				CAD1D01C25B5BF4100D0451F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
