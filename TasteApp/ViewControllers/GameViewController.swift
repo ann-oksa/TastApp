@@ -15,12 +15,13 @@ class GameViewController: UIViewController, GameDelegate {
     
     let gameViewModel = GameViewModel()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         gameViewModel.delegate =  self
         gameViewModel.setValueForNewGame()
-        previousButton.isHidden = true
+        previousButton.isHidden = gameViewModel.thePreviousButtonIsHidden
         checkRecordsCountInHistory()
         
     }
@@ -30,7 +31,7 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func nextClicked(_ sender: UIButton) {
-        previousButton.isHidden = false
+        previousButton.isHidden = gameViewModel.thePreviousButtonIsNotHidden
         gameViewModel.nextClicked()
         gameViewModel.chooseEnotherCard()
     }
@@ -48,9 +49,9 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     func makeAlert() {
-        let alert = UIAlertController(title: "You learned all the words!", message: "Do you want try again?", preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
+        let alert = UIAlertController(title: MessageInAlert.learnAllWords.rawValue, message: MessageInAlert.doYouWantToPlayAgain.rawValue, preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: MessageInAlert.cancel.rawValue, style: .cancel, handler: nil)
+        let okButton = UIAlertAction(title: MessageInAlert.ok.rawValue, style: .default) { (action) in
             
             //refactoring???
             self.gameViewModel.game.currentIndexOfCard = 0

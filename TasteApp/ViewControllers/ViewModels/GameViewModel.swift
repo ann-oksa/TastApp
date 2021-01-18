@@ -14,11 +14,24 @@ protocol GameDelegate: class {
     func setTitleForButtonCard(with title: String)
 }
 
+public enum MessageInAlert: String {
+    case learnAllWords = "You learned all the words!"
+    case doYouWantToPlayAgain = "Do you want to play again?"
+    case dontHaveWords  = "You don`t have words in history"
+    case backToMainMenu = "Back to main menu"
+    case ok = "OK"
+    case cancel = "Cancel"
+    case empty = ""
+}
+
 class GameViewModel {
+    
     
     var game = Game()
     let shared = AppState.shared
     let constants = IdentifiersForSegue()
+    var thePreviousButtonIsHidden = true
+    var thePreviousButtonIsNotHidden  = false
     
     weak var delegate: GameDelegate?
     

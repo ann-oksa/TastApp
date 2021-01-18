@@ -12,6 +12,7 @@ class TasteAppTests: XCTestCase {
 
     let record = Record(word1: "record", word2: "запись")
     let history = History()
+    let shared = AppState.shared
     
     override func setUpWithError() throws {
         super.setUp()
@@ -35,12 +36,8 @@ class TasteAppTests: XCTestCase {
         }
     }
     
-    func testCreateRecordInHistory() {
-        let record = Record(word1: "record", word2: "запись")
-        
-    }
-    
-    func testAddRecordToHistory() {
+  
+    func testAddRecordToHistory() throws {
         history.journal.append(record)
         let result = history.journal.first(where: {$0 === record})?.word1
         XCTAssertEqual(result, record.word1 , "Record doesn`t append in journal")
@@ -52,14 +49,14 @@ class TasteAppTests: XCTestCase {
 //        XCTAssertEqual(result, record.word1 , "Record doesn`t append in journal")
 //    }
     
-    func testRemoveRecordFromHistory() {
+    func testRemoveRecordFromHistory() throws {
         history.journal.append(record)
         guard let indexOfRecord = history.journal.firstIndex(where: {$0 === record}) else { return  }
         history.journal.remove(at: indexOfRecord)
         XCTAssertEqual(history.journal.count, 6, "Record Doesn`t remove from journal")
     }
     
-    func testfuncSaveChangesInHistory() {
+    func testfuncSaveChangesInHistory() throws {
         let word1 = "records"
         let word2 = "записи"
         guard let indexOfRecord = history.journal.firstIndex(where: {$0 === record}) else { return  }
@@ -70,27 +67,61 @@ class TasteAppTests: XCTestCase {
         XCTAssertEqual(result, "records", "Words in this records didn`t change")
     }
     
-    func testSetSomeCardTitle() {
+    func testSetSomeCardTitle() throws {
         
         var someCardTitle = ""
-        var currentIndexOfCard = 0
+        let currentIndexOfCard = 0
         someCardTitle =  history.journal[currentIndexOfCard].word1
         let result  = someCardTitle
         XCTAssertEqual(result, "bananapapa", "wrong")
     }
     
-    func testChangeLanguageIfIndexIsZero() {
-        let index = 0
+    func testChangeLanguageIfIndexIsZero() throws {
+        _ = 0
         AppState.shared.targetLanguage = .english
         let result = AppState.shared.targetLanguage
         XCTAssertEqual(result, .english, "wrong")
     }
     
-    func testChangeLanguageIfIndexIsOne() {
-        let index = 1
+    func testChangeLanguageIfIndexIsOne() throws {
+        _ = 1
         AppState.shared.targetLanguage = .russian
         let result = AppState.shared.targetLanguage
         XCTAssertEqual(result, .russian, "wrong")
+    }
+    
+    func testSetValueForNewGame() throws {
+        let gameVM = GameViewModel()
+        gameVM.game.currentIndexOfCard = 0
+        gameVM.game.isCardOpen = true
+        gameVM.game.records = shared.history.journal
+        gameVM.game.someCardTitle = ""
+        let result = gameVM.game.currentIndexOfCard
+        XCTAssertEqual(result, 0, "wrong")
+    }
+    
+    func testNextClicked() throws {
+        let gameVM = GameViewModel()
+        gameVM.nextClicked()
+        let result = gameVM.game.currentIndexOfCard
+        XCTAssertEqual(result, 1, "wrong")
+    }
+    
+    func testPreviousClicked() throws {
+        let gameVM = GameViewModel()
+        gameVM.nextClicked()
+        gameVM.previousClicked()
+        let result = gameVM.game.currentIndexOfCard
+        XCTAssertEqual(result, 0, "wrong")
+    }
+    
+    func testButtonFlip() throws {
+        let gameVM = GameViewModel()
+        gameVM.nextClicked()
+        gameVM.game.isCardOpen = true
+        gameVM.buttonFlip()
+        let result = gameVM.game.someCardTitle
+        XCTAssertEqual(result, "крыса", "wrong")
     }
 
 }
