@@ -7,21 +7,22 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, DetailsDelegate {
     
     @IBOutlet weak var word1Textfield: UITextField!
     @IBOutlet weak var word2Textfield: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     
     var chosenRecord : Record?
-    var shared = AppState.shared
-    let constants = IdentifiersForSegue()
+    let detailsViewModel = DetailsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        word1Textfield.text = chosenRecord?.word1
-        word2Textfield.text = chosenRecord?.word2
+        detailsViewModel.delegate = self
+        detailsViewModel.fillTextfieldsInFirstDownloading(withRecord: chosenRecord ?? Record(word1: "", word2: ""))
+        
+        
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
@@ -32,12 +33,24 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func saveChangesClicked(_ sender: UIButton) {
-        shared.history.saveChangesInHistory(word1: word1Textfield.text ?? "",
-                                            word2: word2Textfield.text ?? "",
-                                            record: chosenRecord ?? Record(word1: "", word2: ""))
-        self.performSegue(withIdentifier: constants.unwindSegueFromDetailsToHistory, sender: self)
+        
+        detailsViewModel.saveChangesWithButtonClicked()
         
         
+        self.performSegue(withIdentifier: detailsViewModel.constants.unwindSegueFromDetailsToHistory, sender: self)
+        
+        
+    }
+    
+    func fillTextfieldsWithWords(word1: String, word2: String) {
+        word1Textfield.text = word1
+        word2Textfield.text = word2
+    }
+    
+    func saveChanges() {
+        detailsViewModel.shared.history.saveChangesInHistory(word1: word1Textfield.text ?? "",
+                                                             word2: word2Textfield.text ?? "",
+                                                             record: chosenRecord ?? Record(word1: "", word2: ""))
     }
     
     

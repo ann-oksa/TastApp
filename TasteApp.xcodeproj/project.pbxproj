@@ -33,6 +33,7 @@
 		CAD1D01625B5BF4100D0451F /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D01525B5BF4100D0451F /* GameViewModelTests.swift */; };
 		CAD1D02425B5CB4500D0451F /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */; };
 		CAD1D02925B5D69800D0451F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */; };
+		CAD1D02E25B85EFD00D0451F /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02D25B85EFD00D0451F /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		CAD1D01725B5BF4100D0451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
 		CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		CAD1D02D25B85EFD00D0451F /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				CAD1D00825B56E1A00D0451F /* GameViewModel.swift */,
 				CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */,
 				CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */,
+				CAD1D02D25B85EFD00D0451F /* DetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				CA3359132589285E00C04AD6 /* PopoverViewController.swift in Sources */,
 				CABEA980256D7C1B005406F2 /* GoogleTranslateAPIManager.swift in Sources */,
 				CA35D77A257E6AE600E06B00 /* History.swift in Sources */,
+				CAD1D02E25B85EFD00D0451F /* DetailsViewModel.swift in Sources */,
 				CA33590F25877F3500C04AD6 /* GameViewController.swift in Sources */,
 				CABEA99825766589005406F2 /* GoogleTranslateAPIJSON.swift in Sources */,
 				CABEA983256D81E3005406F2 /* TranslationOfWord.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 protocol TranslationDelegate: class {
     func setValuesForOutlets(text: String)
     func setValuesOfWordsDependingOnLanguages()
-    func visibilityOfIndicatorOfDownloading(is: Bool)
+    func isLoadingInProgress(loading: Bool)
 }
 
 class  TranslationViewModel {
@@ -20,7 +20,7 @@ class  TranslationViewModel {
     let constants = IdentifiersForSegue()
     var isIndicatorOfDownloadingHidden = true {
         didSet {
-            delegate?.visibilityOfIndicatorOfDownloading(is: isIndicatorOfDownloadingHidden)
+            delegate?.isLoadingInProgress(loading: isIndicatorOfDownloadingHidden)
         }
     }
     
@@ -33,8 +33,10 @@ class  TranslationViewModel {
     
     func transformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language) {
         transformation.transformTranslationToLanguage(text: text, targetLanguage: targetLanguage, sourceLanguage: sourceLanguage) { translatedText in
+            self.isIndicatorOfDownloadingHidden = false
             self.delegate?.setValuesForOutlets(text: translatedText)
             self.delegate?.setValuesOfWordsDependingOnLanguages()
+            self.isIndicatorOfDownloadingHidden = true
         }
     }
     

@@ -21,11 +21,10 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         
         translationViewModel.delegate = self
         self.wordInputTextField.delegate = self
-      //  indicatorOfDownloading.isHidden = true
-        visibilityOfIndicatorOfDownloading(is: translationViewModel.isIndicatorOfDownloadingHidden)
-
         changingLanguageController.selectedSegmentIndex = 0
         translationViewModel.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
+        
+        isLoadingInProgress(loading: translationViewModel.isIndicatorOfDownloadingHidden)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardWithTappingOnScreen))
         view.addGestureRecognizer(gestureRecognizer)
@@ -50,10 +49,13 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
               inputText.isEmpty == false else {
             return
         }
-        indicatorOfDownloading.isHidden = false
-        indicatorOfDownloading.startAnimating()
+       // indicatorOfDownloading.isHidden = false
         
         translationViewModel.transformTranslationToLanguage(text: inputText, targetLanguage: translationViewModel.appState.targetLanguage, sourceLanguage: translationViewModel.appState.sourceLanguage)
+        
+       // indicatorOfDownloading.startAnimating()
+
+        
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
@@ -70,9 +72,8 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
     
     func setValuesForOutlets(text: String) {
         self.translationLabel.text = text
-        self.indicatorOfDownloading.stopAnimating()
+       // self.indicatorOfDownloading.stopAnimating()
        // self.indicatorOfDownloading.isHidden = true
-        visibilityOfIndicatorOfDownloading(is: translationViewModel.isIndicatorOfDownloadingHidden)
 
     }
     
@@ -90,9 +91,12 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         }
         translationViewModel.createRecord(word1: word1, word2: word2)
     }
-    
-    func visibilityOfIndicatorOfDownloading(is: Bool) {
+    // ref name
+    // startStopAnimating
+    func isLoadingInProgress(loading: Bool) {
         indicatorOfDownloading.isHidden = translationViewModel.isIndicatorOfDownloadingHidden
+        indicatorOfDownloading.isHidden ? indicatorOfDownloading.stopAnimating() : indicatorOfDownloading.startAnimating()
+         
     }
 }
 
