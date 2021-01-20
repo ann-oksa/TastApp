@@ -12,26 +12,27 @@ protocol GameDelegate: class {
     func setButtonCardTitleAndAction()
     func makeAlert()
     func setTitleForButtonCard(with title: String)
-}
-
-public enum MessageInAlert: String {
-    case learnAllWords = "You learned all the words!"
-    case doYouWantToPlayAgain = "Do you want to play again?"
-    case dontHaveWords  = "You don`t have words in history"
-    case backToMainMenu = "Back to main menu"
-    case ok = "OK"
-    case cancel = "Cancel"
-    case empty = ""
+    func visibilityOfPreviousButton(is: Bool)
 }
 
 class GameViewModel {
     
+    let learnAllWords = "You learned all the words!"
+    let doYouWantToPlayAgain = "Do you want to play again?"
+    let dontHaveWords  = "You don`t have words in history"
+    let backToMainMenu = "Back to main menu"
+    let ok = "OK"
+    let cancel = "Cancel"
+    let empty = ""
     
     var game = Game()
     let shared = AppState.shared
     let constants = IdentifiersForSegue()
-    var thePreviousButtonIsHidden = true
-    var thePreviousButtonIsNotHidden  = false
+    var isPreviousButtonHidden = true {
+        didSet {
+            delegate?.visibilityOfPreviousButton(is: isPreviousButtonHidden)
+        }
+    }
     
     weak var delegate: GameDelegate?
     
@@ -40,7 +41,7 @@ class GameViewModel {
         game.isCardOpen = true
         game.records = shared.history.journal
         game.someCardTitle = ""
-        
+        isPreviousButtonHidden = true
     }
     
     func buttonFlip() {
@@ -61,6 +62,7 @@ class GameViewModel {
     
     func nextClicked() {
         game.currentIndexOfCard += 1
+        isPreviousButtonHidden = false
     }
     
     func previousClicked() {

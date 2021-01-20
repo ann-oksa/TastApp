@@ -21,7 +21,6 @@ class GameViewController: UIViewController, GameDelegate {
 
         gameViewModel.delegate =  self
         gameViewModel.setValueForNewGame()
-        previousButton.isHidden = gameViewModel.thePreviousButtonIsHidden
         checkRecordsCountInHistory()
         
     }
@@ -31,7 +30,6 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func nextClicked(_ sender: UIButton) {
-        previousButton.isHidden = gameViewModel.thePreviousButtonIsNotHidden
         gameViewModel.nextClicked()
         gameViewModel.chooseEnotherCard()
     }
@@ -42,7 +40,6 @@ class GameViewController: UIViewController, GameDelegate {
         
     }
     
-    //tnterred parametrs
     func setButtonCardTitleAndAction() {
         setTitleForButtonCard(with: gameViewModel.game.someCardTitle)
         buttonCard.backgroundColor = .white
@@ -50,10 +47,9 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     func makeAlert() {
-        let alert = UIAlertController(title: MessageInAlert.learnAllWords.rawValue, message: MessageInAlert.doYouWantToPlayAgain.rawValue, preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: MessageInAlert.cancel.rawValue, style: .cancel, handler: nil)
-        let okButton = UIAlertAction(title: MessageInAlert.ok.rawValue, style: .default) { (action) in
-            
+        let alert = UIAlertController(title: gameViewModel.learnAllWords, message: gameViewModel.doYouWantToPlayAgain, preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: gameViewModel.cancel, style: .cancel, handler: nil)
+        let okButton = UIAlertAction(title: gameViewModel.ok, style: .default) { (action) in
             //refactoring???
             self.gameViewModel.game.currentIndexOfCard = 0
             self.gameViewModel.game.someCardTitle = self.gameViewModel.game.records[self.gameViewModel.game.currentIndexOfCard].word2
@@ -67,8 +63,8 @@ class GameViewController: UIViewController, GameDelegate {
     
     func checkRecordsCountInHistory(){
         if gameViewModel.game.records.count == 0 {
-            let alert = UIAlertController(title: nil, message: "You don`t have words in history", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "Back to main menu", style: .default) { (al) in
+            let alert = UIAlertController(title: nil, message: gameViewModel.dontHaveWords, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: gameViewModel.backToMainMenu, style: .default) { (al) in
                 self.performSegue(withIdentifier: self.gameViewModel.constants.unwindSegueFromGameToTranslation, sender: self)
                 
             }
@@ -79,6 +75,10 @@ class GameViewController: UIViewController, GameDelegate {
     
     func setTitleForButtonCard(with title: String) {
         buttonCard.setTitle(title, for: .normal)
+    }
+    
+    func visibilityOfPreviousButton(is: Bool) {
+        previousButton.isHidden = gameViewModel.isPreviousButtonHidden
     }
     
 }

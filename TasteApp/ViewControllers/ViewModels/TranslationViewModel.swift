@@ -10,6 +10,7 @@ import Foundation
 protocol TranslationDelegate: class {
     func setValuesForOutlets(text: String)
     func setValuesOfWordsDependingOnLanguages()
+    func visibilityOfIndicatorOfDownloading(is: Bool)
 }
 
 class  TranslationViewModel {
@@ -17,6 +18,11 @@ class  TranslationViewModel {
     var transformation = TranslationService()
     var appState = AppState.shared
     let constants = IdentifiersForSegue()
+    var isIndicatorOfDownloadingHidden = true {
+        didSet {
+            delegate?.visibilityOfIndicatorOfDownloading(is: isIndicatorOfDownloadingHidden)
+        }
+    }
     
     weak var delegate: TranslationDelegate?
     
@@ -25,7 +31,7 @@ class  TranslationViewModel {
         appState.changeLanguageDependingOnTheIndex(index: index)
     }
     
-    func newtransformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language) {
+    func transformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language) {
         transformation.transformTranslationToLanguage(text: text, targetLanguage: targetLanguage, sourceLanguage: sourceLanguage) { translatedText in
             self.delegate?.setValuesForOutlets(text: translatedText)
             self.delegate?.setValuesOfWordsDependingOnLanguages()

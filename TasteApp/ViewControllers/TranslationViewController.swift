@@ -21,7 +21,9 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         
         translationViewModel.delegate = self
         self.wordInputTextField.delegate = self
-        indicatorOfDownloading.isHidden = true
+      //  indicatorOfDownloading.isHidden = true
+        visibilityOfIndicatorOfDownloading(is: translationViewModel.isIndicatorOfDownloadingHidden)
+
         changingLanguageController.selectedSegmentIndex = 0
         translationViewModel.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
         
@@ -51,7 +53,7 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         indicatorOfDownloading.isHidden = false
         indicatorOfDownloading.startAnimating()
         
-        translationViewModel.newtransformTranslationToLanguage(text: inputText, targetLanguage: translationViewModel.appState.targetLanguage, sourceLanguage: translationViewModel.appState.sourceLanguage)
+        translationViewModel.transformTranslationToLanguage(text: inputText, targetLanguage: translationViewModel.appState.targetLanguage, sourceLanguage: translationViewModel.appState.sourceLanguage)
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
@@ -69,7 +71,9 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
     func setValuesForOutlets(text: String) {
         self.translationLabel.text = text
         self.indicatorOfDownloading.stopAnimating()
-        self.indicatorOfDownloading.isHidden = true
+       // self.indicatorOfDownloading.isHidden = true
+        visibilityOfIndicatorOfDownloading(is: translationViewModel.isIndicatorOfDownloadingHidden)
+
     }
     
     func setValuesOfWordsDependingOnLanguages() {
@@ -85,6 +89,10 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
             word2 = self.wordInputTextField.text ?? ""
         }
         translationViewModel.createRecord(word1: word1, word2: word2)
+    }
+    
+    func visibilityOfIndicatorOfDownloading(is: Bool) {
+        indicatorOfDownloading.isHidden = translationViewModel.isIndicatorOfDownloadingHidden
     }
 }
 
