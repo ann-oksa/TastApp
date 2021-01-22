@@ -17,13 +17,15 @@ class CellForRecord: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        fill()
+        wordLabel.text = VM?.rightWord
+        translationLabel.text = VM?.rightWord
+        
+        print(wordLabel.text)
+        
     }
     
     
     func fill() {
-        wordLabel.text = VM?.leftWord
-        translationLabel.text = VM?.rightWord
-        print(wordLabel.text)
+        
     }
 }

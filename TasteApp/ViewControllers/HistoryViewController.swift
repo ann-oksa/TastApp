@@ -14,8 +14,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var chosenRecord: Record?
     
-    let historyViewModel = HistoryViewModel()
-    
+    let historyViewModel = HistoryViewModel(records: AppState.shared.getRecords())
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +44,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: historyViewModel.constants.cellInHistory, for: indexPath) as? CellForRecord
-        var cellViewModel = historyViewModel.generateCellViewModel(forIndexPath: indexPath, englishLanguageOnLeftSide: historyViewModel.switchingStateOfLanguages)
+        let cellViewModel = historyViewModel.listOfCellViewModel[indexPath.row]
         
         cell?.VM = cellViewModel
+        print("cell.vm = \(cell?.VM)")
         return cell ?? UITableViewCell()
     }
     

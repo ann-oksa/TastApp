@@ -30,6 +30,7 @@ class CellForRecordViewModel {
             leftWord = record.word2
             rightWord = record.word1
         }
+        print("configure \(rightWord)")
     }
     
 
