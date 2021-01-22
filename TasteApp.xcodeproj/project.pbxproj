@@ -34,6 +34,7 @@
 		CAD1D02425B5CB4500D0451F /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */; };
 		CAD1D02925B5D69800D0451F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */; };
 		CAD1D02E25B85EFD00D0451F /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D02D25B85EFD00D0451F /* DetailsViewModel.swift */; };
+		CAD1D03325B989ED00D0451F /* CellForRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1D03225B989ED00D0451F /* CellForRecordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
 		CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		CAD1D02D25B85EFD00D0451F /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		CAD1D03225B989ED00D0451F /* CellForRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForRecordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				CAD1D02325B5CB4500D0451F /* TranslationViewModel.swift */,
 				CAD1D02825B5D69800D0451F /* HistoryViewModel.swift */,
 				CAD1D02D25B85EFD00D0451F /* DetailsViewModel.swift */,
+				CAD1D03225B989ED00D0451F /* CellForRecordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				CA6F64ED2576B30E00117799 /* CreatingURLManager.swift in Sources */,
 				CA4E507C25932FE300771E8A /* Game.swift in Sources */,
 				CA04C7A525B1696B004B06E3 /* IdentifiersForSegue.swift in Sources */,
+				CAD1D03325B989ED00D0451F /* CellForRecordViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

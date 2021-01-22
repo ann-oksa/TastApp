@@ -33,7 +33,7 @@ class  TranslationViewModel {
     
     func transformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language) {
         transformation.transformTranslationToLanguage(text: text, targetLanguage: targetLanguage, sourceLanguage: sourceLanguage) { translatedText in
-            self.isIndicatorOfDownloadingHidden = false
+           // self.isIndicatorOfDownloadingHidden = false
             self.delegate?.setValuesForOutlets(text: translatedText)
             self.delegate?.setValuesOfWordsDependingOnLanguages()
             self.isIndicatorOfDownloadingHidden = true

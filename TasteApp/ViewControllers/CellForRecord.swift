@@ -11,6 +11,9 @@ class CellForRecord: UITableViewCell {
     
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var translationLabel: UILabel!
+    
+    let cellForRecordViewModel = CellForRecordViewModel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -18,20 +21,9 @@ class CellForRecord: UITableViewCell {
     }
     
     func fill(record: Record, isEnglishLanguageOnLeftSide: Bool) {
-        
-        var leftWord : String
-        var rightWord : String
-        
-        if isEnglishLanguageOnLeftSide {
-            leftWord = record.word1
-            rightWord = record.word2
-        } else {
-            leftWord = record.word2
-            rightWord = record.word1
-        }
-        
-        wordLabel.text = leftWord
-        translationLabel.text = rightWord
+        cellForRecordViewModel.configure(record: record, isEnglishLanguageOnLeftSide: isEnglishLanguageOnLeftSide)
+        wordLabel.text = cellForRecordViewModel.leftWord
+        translationLabel.text = cellForRecordViewModel.rightWord
     }
     
 }

@@ -79,7 +79,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == historyViewModel.constants.identifierToDetails {
             guard let destinationVC = segue.destination as? DetailsViewController else { return }
-            destinationVC.chosenRecord = chosenRecord
+            destinationVC.detailsViewModel = DetailsViewModel(newChosenRecord: chosenRecord!)
         }
     }
     

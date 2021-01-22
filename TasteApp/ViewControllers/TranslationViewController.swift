@@ -19,6 +19,7 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         translationViewModel.delegate = self
         self.wordInputTextField.delegate = self
         changingLanguageController.selectedSegmentIndex = 0
@@ -28,6 +29,8 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardWithTappingOnScreen))
         view.addGestureRecognizer(gestureRecognizer)
+        
+        indicatorOfDownloading.isHidden = true
         
     }
     
@@ -49,13 +52,9 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
               inputText.isEmpty == false else {
             return
         }
-       // indicatorOfDownloading.isHidden = false
-        
+        indicatorOfDownloading.isHidden = false
+      //  indicatorOfDownloading.startAnimating()
         translationViewModel.transformTranslationToLanguage(text: inputText, targetLanguage: translationViewModel.appState.targetLanguage, sourceLanguage: translationViewModel.appState.sourceLanguage)
-        
-       // indicatorOfDownloading.startAnimating()
-
-        
     }
     
     @IBAction func historyClicked(_ sender: UIButton) {
@@ -72,8 +71,6 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
     
     func setValuesForOutlets(text: String) {
         self.translationLabel.text = text
-       // self.indicatorOfDownloading.stopAnimating()
-       // self.indicatorOfDownloading.isHidden = true
 
     }
     
