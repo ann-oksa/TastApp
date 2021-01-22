@@ -8,9 +8,19 @@
 import Foundation
 
 class CellForRecordViewModel {
-    
+ 
+  
     var leftWord = String()
     var rightWord = String()
+    
+   var rec : Record
+    var englishLanguageOnLeftSide: Bool
+    
+    init(rec: Record,englishLanguageOnLeftSide: Bool) {
+        self.rec = rec
+        self.englishLanguageOnLeftSide = englishLanguageOnLeftSide
+       configure(record: rec, isEnglishLanguageOnLeftSide: englishLanguageOnLeftSide)
+    }
     
     func configure(record: Record, isEnglishLanguageOnLeftSide: Bool) {
         if isEnglishLanguageOnLeftSide {
@@ -21,4 +31,7 @@ class CellForRecordViewModel {
             rightWord = record.word1
         }
     }
+    
+
+    
 }

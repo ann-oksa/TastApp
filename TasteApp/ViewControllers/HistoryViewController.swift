@@ -11,11 +11,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-//    var appState = AppState.shared
-//    var records : [Record] = AppState.shared.getRecords()
+
     var chosenRecord: Record?
-//    var switchingStateOfLanguages = true
-//    let constants = IdentifiersForSegue()
     
     let historyViewModel = HistoryViewModel()
     
@@ -47,8 +44,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: historyViewModel.constants.cellInHistory, for: indexPath) as? CellForRecord
-        let record = historyViewModel.records[indexPath.row]
-        cell?.fill(record: record, isEnglishLanguageOnLeftSide: historyViewModel.switchingStateOfLanguages)
+        var cellViewModel = historyViewModel.generateCellViewModel(forIndexPath: indexPath, englishLanguageOnLeftSide: historyViewModel.switchingStateOfLanguages)
+        
+        cell?.VM = cellViewModel
         return cell ?? UITableViewCell()
     }
     
@@ -104,6 +102,7 @@ extension HistoryViewController {
     
     @objc func switchTranslationRuEn(){
         historyViewModel.switchStateOfLanguage()
+        
         tableView.reloadData()
         
     }
