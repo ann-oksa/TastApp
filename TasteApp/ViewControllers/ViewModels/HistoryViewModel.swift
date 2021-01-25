@@ -14,6 +14,8 @@ class  HistoryViewModel {
     var records : [Record]
     var chosenRecord: Record?
     var switchingStateOfLanguages = true
+    var cellVM = CellForRecordViewModel(rec: Record(word1: "", word2: ""), englishLanguageOnLeftSide: true)
+    
     let constants = IdentifiersForSegue()
     
     var listOfCellViewModel = [CellForRecordViewModel]()
@@ -22,20 +24,17 @@ class  HistoryViewModel {
     init(records:  [Record]) {
         self.records = records
         //из этого массива делаем массив CellForRecordViewModel
-        
         for record in records {
-            let cellVM = CellForRecordViewModel(rec: record, englishLanguageOnLeftSide: switchingStateOfLanguages)
+             cellVM = CellForRecordViewModel(rec: record, englishLanguageOnLeftSide: switchingStateOfLanguages)
             self.listOfCellViewModel.append(cellVM)
-           
         }
-       
-        
     }
-    
     
     func switchStateOfLanguage() {
         switchingStateOfLanguages = !switchingStateOfLanguages
-
+        for record in listOfCellViewModel {
+            record.configure(isEnglishLanguageOnLeftSide: switchingStateOfLanguages)
+        }
     }
     
     func removeChosenRecord(rec: Record) {
@@ -46,6 +45,19 @@ class  HistoryViewModel {
     }
     
     func selectRowToGo(indexPath: IndexPath) {
-        chosenRecord = records[indexPath.row]
+        chosenRecord = listOfCellViewModel[indexPath.row].rec
+    }
+    
+    func sortDictionary(method: KindOfSorting) {
+        switch method {
+        case .fromAtoZ: listOfCellViewModel.sort(by: {$1.leftWord > $0.leftWord})
+        case .fromZtoA: listOfCellViewModel.sort(by: {$1.leftWord < $0.leftWord})
+        case .earliest: listOfCellViewModel.sort(by: {$1.rec.date > $0.rec.date})
+        case .latest: listOfCellViewModel.sort(by: {$1.rec.date < $0.rec.date})
+        }
+        print(listOfCellViewModel.first?.leftWord)
+//        for record in listOfCellViewModel {
+//            record.configure(isEnglishLanguageOnLeftSide: switchingStateOfLanguages)
+//        }
     }
 }

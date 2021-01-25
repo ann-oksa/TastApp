@@ -30,7 +30,7 @@ class DetailsViewController: UIViewController, DetailsDelegate, UITextFieldDeleg
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         detailsViewModel.wordOneAndTwoDidChanged(word1: word1Textfield.text, word2: word2Textfield.text)
     }
@@ -38,6 +38,7 @@ class DetailsViewController: UIViewController, DetailsDelegate, UITextFieldDeleg
     @IBAction func saveChangesClicked(_ sender: UIButton) {
         detailsViewModel.saveChangesWithButtonClicked()
         self.performSegue(withIdentifier: detailsViewModel.constants.unwindSegueFromDetailsToHistory, sender: self)
+        print(detailsViewModel.wordOne)
     }
     
     func fillTextfieldsWithWords(word1: String, word2: String) {

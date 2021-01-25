@@ -8,30 +8,30 @@
 import Foundation
 
 class CellForRecordViewModel {
- 
-  
+    
+    
     var leftWord = String()
     var rightWord = String()
     
-   var rec : Record
+    var rec : Record
     var englishLanguageOnLeftSide: Bool
     
     init(rec: Record,englishLanguageOnLeftSide: Bool) {
         self.rec = rec
         self.englishLanguageOnLeftSide = englishLanguageOnLeftSide
-       configure(record: rec, isEnglishLanguageOnLeftSide: englishLanguageOnLeftSide)
+        configure(isEnglishLanguageOnLeftSide: englishLanguageOnLeftSide)
     }
     
-    func configure(record: Record, isEnglishLanguageOnLeftSide: Bool) {
+  public func configure(isEnglishLanguageOnLeftSide: Bool) {
         if isEnglishLanguageOnLeftSide {
-            leftWord = record.word1
-            rightWord = record.word2
+            leftWord = rec.word1
+            rightWord = rec.word2
         } else {
-            leftWord = record.word2
-            rightWord = record.word1
+            leftWord = rec.word2
+            rightWord = rec.word1
         }
     }
     
-
+    
     
 }

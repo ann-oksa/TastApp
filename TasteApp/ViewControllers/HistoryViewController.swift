@@ -19,7 +19,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate  = self
         tableView.dataSource = self
         title = "History"
-        
+        tableView.reloadData()
         let sortButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(openSortMenuForWordsInHistory))
         let switchTranslationButton = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(switchTranslationRuEn))
         
@@ -63,9 +63,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //func
-      //  historyViewModel.chosenRecord = historyViewModel.records[indexPath.row]
-        //
         historyViewModel.selectRowToGo(indexPath: indexPath)
         performSegue(withIdentifier: historyViewModel.constants.identifierToDetails, sender: self)
     }
@@ -78,32 +75,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
+       
         tableView.reloadData()
     }
     
     func selectSortingMethod(method: KindOfSorting) {
-        sortDictionary(method: method)
+        historyViewModel.sortDictionary(method: method)
+        tableView.reloadData()
     }
+    
     @objc func switchTranslationRuEn(){
         historyViewModel.switchStateOfLanguage()
         tableView.reloadData()
-        
     }
-    
-    
-    // func
-    func sortDictionary(method: KindOfSorting) {
-        switch method {
-        case .fromAtoZ: historyViewModel.records.sort(by: {$1.word1 > $0.word1})
-        case .fromZtoA: historyViewModel.records.sort(by: {$1.word1 < $0.word1})
-            print("ZA")
-        case .earliest: historyViewModel.records.sort(by: {$1.date > $0.date})
-        case .latest: historyViewModel.records.sort(by: {$1.date < $0.date})
-        }
-        tableView.reloadData()
-    }
-    
-    
+ 
     @objc func openSortMenuForWordsInHistory() {
         guard let popVC = storyboard?.instantiateViewController(identifier: historyViewModel.constants.identifierForPopover) as? PopoverViewController else { return  }
         popVC.modalPresentationStyle =  .popover

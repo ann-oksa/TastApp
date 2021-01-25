@@ -33,6 +33,8 @@ class DetailsViewModel {
     
     func saveChangesWithButtonClicked() {
         shared.history.saveChangesInHistory(word1: wordOne, word2: wordTwo, record: newChosenRecord)
+        print(wordOne)
+        print(wordTwo)
     }
    
     public func wordOneAndTwoDidChanged(word1: String?, word2: String?) {
