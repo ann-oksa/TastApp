@@ -39,8 +39,11 @@ class History : Codable {
     }
     
     func removeRecordFromHistory(record: Record) {
+        print("class History removeRecordFromHistory before journal \(journal.count)")
         guard let indexOfRecord = journal.firstIndex(where: {$0 === record}) else { return  }
         journal.remove(at: indexOfRecord)
+        
+        print("class History removeRecordFromHistory journal count \(journal.count)")
         self.saveHistoryToDisk()
     }
     
@@ -56,6 +59,7 @@ class History : Codable {
         do {
             let data = try encoder.encode(journal)
             UserDefaults.standard.setValue(data, forKey: "journal")
+            print("class history saveHistoryToDisk ")
         }
         catch {
             print("class History -> func saveHistoryToDisk -> error in encoding data: \(error.localizedDescription)")

@@ -27,6 +27,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        for record in historyViewModel.listOfCellViewModel {
+            record.configure(isEnglishLanguageOnLeftSide: true)
+        }
+    }
+    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
@@ -53,12 +60,13 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // func
             historyViewModel.appState.history.removeRecordFromHistory(record: historyViewModel.records[indexPath.row]) //recvm.rec
             historyViewModel.records = historyViewModel.appState.getRecords()
-            //
-           // historyViewModel.removeChosenRecord(rec: historyViewModel.listOfCellViewModel[indexPath.row].rec)
+            //   historyViewModel.removeChosenRecord(rec: historyViewModel.listOfCellViewModel[indexPath.row].rec)
+            print("deleted")
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            print("tableViewDeleteRows")
+           // self.tableView.reloadData()
         }
     }
     
@@ -75,7 +83,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func unwindToHistory(segue: UIStoryboardSegue) {
-       
         tableView.reloadData()
     }
     
@@ -100,12 +107,4 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.present(popVC, animated: true)
         
     }
-    
-  
-}
-
-extension HistoryViewController {
-    
-   
-   
 }

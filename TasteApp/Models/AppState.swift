@@ -31,6 +31,7 @@ class AppState {
     }
     
     func getRecords() -> [Record] {
+        print("app state getRecords count \(history.journal.count)")
         return history.journal
     }
     
