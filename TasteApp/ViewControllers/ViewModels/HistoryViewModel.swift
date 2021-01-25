@@ -26,9 +26,9 @@ class  HistoryViewModel {
         for record in records {
             let cellVM = CellForRecordViewModel(rec: record, englishLanguageOnLeftSide: switchingStateOfLanguages)
             self.listOfCellViewModel.append(cellVM)
-            print(cellVM.rightWord)
+           
         }
-        print(listOfCellViewModel.count)
+       
         
     }
     
@@ -36,5 +36,16 @@ class  HistoryViewModel {
     func switchStateOfLanguage() {
         switchingStateOfLanguages = !switchingStateOfLanguages
 
+    }
+    
+    func removeChosenRecord(rec: Record) {
+     //   appState.history.removeRecordFromHistory(record: records[indexPath.row]) //recvm.rec
+      //            self.historyViewModel.records = historyViewModel.appState.getRecords()
+        appState.history.removeRecordFromHistory(record: rec)
+        self.records = appState.getRecords()
+    }
+    
+    func selectRowToGo(indexPath: IndexPath) {
+        chosenRecord = records[indexPath.row]
     }
 }
