@@ -12,7 +12,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     let historyViewModel = HistoryViewModel(records: AppState.shared.getRecords())
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,23 +50,17 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: historyViewModel.constants.cellInHistory, for: indexPath) as? CellForRecord
         let cellViewModel = historyViewModel.listOfCellViewModel[indexPath.row]
         cell?.bind(cellViewModel)
-     
         return cell ?? UITableViewCell()
     }
- 
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            historyViewModel.appState.history.removeRecordFromHistory(record: historyViewModel.records[indexPath.row]) //recvm.rec
-            historyViewModel.records = historyViewModel.appState.getRecords()
-            //   historyViewModel.removeChosenRecord(rec: historyViewModel.listOfCellViewModel[indexPath.row].rec)
-            print("deleted")
+            historyViewModel.removeChosenRecord(indexPath: indexPath)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            print("tableViewDeleteRows")
-           // self.tableView.reloadData()
         }
     }
     
@@ -95,7 +89,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         historyViewModel.switchStateOfLanguage()
         tableView.reloadData()
     }
- 
+    
     @objc func openSortMenuForWordsInHistory() {
         guard let popVC = storyboard?.instantiateViewController(identifier: historyViewModel.constants.identifierForPopover) as? PopoverViewController else { return  }
         popVC.modalPresentationStyle =  .popover
@@ -105,6 +99,5 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         popVC.preferredContentSize = CGSize(width: 350, height: 150)
         popVC.delegate = self
         self.present(popVC, animated: true)
-        
     }
 }

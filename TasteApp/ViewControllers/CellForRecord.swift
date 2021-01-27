@@ -12,13 +12,9 @@ class CellForRecord: UITableViewCell {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var translationLabel: UILabel!
     
-   
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-    
     
     func bind(_ viewModel: CellForRecordViewModel) {
         wordLabel.text = viewModel.leftWord

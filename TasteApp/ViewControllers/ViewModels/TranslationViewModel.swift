@@ -26,14 +26,12 @@ class  TranslationViewModel {
     
     weak var delegate: TranslationDelegate?
     
-    
     func changeLanguageDependingOnTheIndex(index: Int) {
         appState.changeLanguageDependingOnTheIndex(index: index)
     }
     
     func transformTranslationToLanguage(text: String, targetLanguage: Language, sourceLanguage: Language) {
         transformation.transformTranslationToLanguage(text: text, targetLanguage: targetLanguage, sourceLanguage: sourceLanguage) { translatedText in
-           // self.isIndicatorOfDownloadingHidden = false
             self.delegate?.setValuesForOutlets(text: translatedText)
             self.delegate?.setValuesOfWordsDependingOnLanguages()
             self.isIndicatorOfDownloadingHidden = true

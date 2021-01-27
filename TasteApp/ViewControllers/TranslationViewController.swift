@@ -19,17 +19,14 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         translationViewModel.delegate = self
         self.wordInputTextField.delegate = self
         changingLanguageController.selectedSegmentIndex = 0
         translationViewModel.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
-        
         isLoadingInProgress(loading: translationViewModel.isIndicatorOfDownloadingHidden)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardWithTappingOnScreen))
         view.addGestureRecognizer(gestureRecognizer)
-        
         indicatorOfDownloading.isHidden = true
         
     }
@@ -42,6 +39,9 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         self.view.endEditing(true)
         return false
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        wordInputTextField.text = ""
+    }
     
     @IBAction func changeLanguage(_ sender: UISegmentedControl) {
         translationViewModel.changeLanguageDependingOnTheIndex(index: changingLanguageController.selectedSegmentIndex)
@@ -53,7 +53,6 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
             return
         }
         indicatorOfDownloading.isHidden = false
-      //  indicatorOfDownloading.startAnimating()
         translationViewModel.transformTranslationToLanguage(text: inputText, targetLanguage: translationViewModel.appState.targetLanguage, sourceLanguage: translationViewModel.appState.sourceLanguage)
     }
     
@@ -66,12 +65,10 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
     }
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
-        
     }
     
     func setValuesForOutlets(text: String) {
         self.translationLabel.text = text
-
     }
     
     func setValuesOfWordsDependingOnLanguages() {
@@ -88,8 +85,6 @@ class TranslationViewController: UIViewController, UITextFieldDelegate, Translat
         }
         translationViewModel.createRecord(word1: word1, word2: word2)
     }
-    // ref name
-    // startStopAnimating
     func isLoadingInProgress(loading: Bool) {
         indicatorOfDownloading.isHidden = translationViewModel.isIndicatorOfDownloadingHidden
         indicatorOfDownloading.isHidden ? indicatorOfDownloading.stopAnimating() : indicatorOfDownloading.startAnimating()

@@ -21,17 +21,17 @@
                                 <rect key="frame" x="0.0" y="-4" width="375" height="671"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Rgm-tQ-kNH">
-                                <rect key="frame" x="167" y="154.5" width="41" height="20"/>
+                                <rect key="frame" x="167" y="114.5" width="41" height="20"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translate to:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-yc-9OO">
-                                <rect key="frame" x="68" y="56" width="239" height="27.5"/>
+                                <rect key="frame" x="68" y="36" width="239" height="27.5"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="22"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-Cu-Bz8">
-                                <rect key="frame" x="80" y="108.5" width="215" height="32"/>
+                                <rect key="frame" x="80" y="73.5" width="215" height="32"/>
                                 <segments>
                                     <segment title="Russian"/>
                                     <segment title="English"/>
@@ -42,16 +42,16 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your translation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-IE-onS">
-                                <rect key="frame" x="0.0" y="184.5" width="374" height="100"/>
+                                <rect key="frame" x="0.0" y="144.5" width="374" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="uHG-yq-ez4"/>
+                                    <constraint firstAttribute="height" constant="70" id="uHG-yq-ez4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkJ-Un-gDS">
-                                <rect key="frame" x="257" y="369" width="102" height="44"/>
+                                <rect key="frame" x="257" y="268.5" width="102" height="44"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                 <state key="normal" title="Translate">
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CbX-PR-1kP">
-                                <rect key="frame" x="25" y="563" width="325" height="44"/>
+                                <rect key="frame" x="25" y="473" width="325" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-cX-xom">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="44"/>
@@ -95,7 +95,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put down your text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="III-Vi-D58">
-                                <rect key="frame" x="9" y="315" width="356" height="34"/>
+                                <rect key="frame" x="9" y="224.5" width="356" height="34"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="22"/>
@@ -112,7 +112,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y7A-IE-onS" secondAttribute="trailing" constant="1" id="3aR-YB-4C8"/>
                             <constraint firstItem="dIK-Cu-Bz8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="4lV-IE-Bk7"/>
-                            <constraint firstItem="dIK-Cu-Bz8" firstAttribute="top" secondItem="Dk7-yc-9OO" secondAttribute="bottom" constant="25" id="6WC-8n-HaW"/>
+                            <constraint firstItem="dIK-Cu-Bz8" firstAttribute="top" secondItem="Dk7-yc-9OO" secondAttribute="bottom" constant="10" id="6WC-8n-HaW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dk7-yc-9OO" secondAttribute="trailing" constant="68" id="7Iq-Fy-Jfo"/>
                             <constraint firstItem="Y7A-IE-onS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7gs-gh-jh0"/>
                             <constraint firstItem="lmc-GA-NKT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7qW-c9-Qh9"/>
@@ -120,19 +120,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="III-Vi-D58" secondAttribute="trailing" constant="10" id="A3L-fW-h8D"/>
                             <constraint firstItem="Dk7-yc-9OO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="A4w-d3-UFl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="lmc-GA-NKT" secondAttribute="top" constant="100" id="BeL-uM-PzZ"/>
-                            <constraint firstItem="Rgm-tQ-kNH" firstAttribute="top" secondItem="dIK-Cu-Bz8" secondAttribute="bottom" constant="15" id="EYg-kX-0nK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Dk7-yc-9OO" secondAttribute="top" constant="40" id="F1R-Wj-Cub"/>
+                            <constraint firstItem="Rgm-tQ-kNH" firstAttribute="top" secondItem="dIK-Cu-Bz8" secondAttribute="bottom" constant="10" id="EYg-kX-0nK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Dk7-yc-9OO" secondAttribute="top" constant="60" id="F1R-Wj-Cub"/>
                             <constraint firstItem="Rgm-tQ-kNH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="FxK-ng-uFG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CbX-PR-1kP" secondAttribute="trailing" constant="25" id="Kpj-8R-4r1"/>
-                            <constraint firstItem="III-Vi-D58" firstAttribute="top" secondItem="Y7A-IE-onS" secondAttribute="bottom" constant="30.5" id="O7h-NC-c46"/>
+                            <constraint firstItem="III-Vi-D58" firstAttribute="top" secondItem="Y7A-IE-onS" secondAttribute="bottom" constant="10" id="O7h-NC-c46"/>
                             <constraint firstItem="JkJ-Un-gDS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="PEQ-KJ-N8r"/>
                             <constraint firstItem="III-Vi-D58" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="PL4-cR-FQz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lmc-GA-NKT" secondAttribute="trailing" id="Z1N-7w-kdz"/>
-                            <constraint firstItem="JkJ-Un-gDS" firstAttribute="top" secondItem="III-Vi-D58" secondAttribute="bottom" constant="20" id="ZFg-US-hcL"/>
+                            <constraint firstItem="JkJ-Un-gDS" firstAttribute="top" secondItem="III-Vi-D58" secondAttribute="bottom" constant="10" id="ZFg-US-hcL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dIK-Cu-Bz8" secondAttribute="trailing" constant="80" id="aFP-HZ-E6S"/>
                             <constraint firstItem="CbX-PR-1kP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="dRt-gg-vOE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rgm-tQ-kNH" secondAttribute="trailing" constant="167" id="gZH-Wd-ncB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CbX-PR-1kP" secondAttribute="bottom" constant="60" id="kww-DV-RoE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CbX-PR-1kP" secondAttribute="bottom" constant="150" id="kww-DV-RoE"/>
                             <constraint firstItem="Y7A-IE-onS" firstAttribute="top" secondItem="Rgm-tQ-kNH" secondAttribute="bottom" constant="10" id="m6l-SG-Y5J"/>
                             <constraint firstItem="CbX-PR-1kP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JkJ-Un-gDS" secondAttribute="bottom" constant="30" id="okf-dZ-1rc"/>
                             <constraint firstItem="lmc-GA-NKT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z1T-RX-xWO"/>
@@ -323,39 +323,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="406-A8-Pon">
-                                <rect key="frame" x="37" y="96" width="301" height="471"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="406-A8-Pon">
+                                <rect key="frame" x="37" y="56" width="301" height="351"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit words" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWI-fi-JVB">
-                                        <rect key="frame" x="0.0" y="0.0" width="301" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="301" height="50"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyF-sB-frX">
-                                        <rect key="frame" x="0.0" y="85" width="301" height="46"/>
+                                        <rect key="frame" x="0.0" y="60" width="301" height="50.5"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-Qq-Td8">
-                                        <rect key="frame" x="0.0" y="170" width="301" height="46"/>
+                                        <rect key="frame" x="0.0" y="120.5" width="301" height="50"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translation:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3N-1h-kEn">
-                                        <rect key="frame" x="0.0" y="255" width="301" height="46"/>
+                                        <rect key="frame" x="0.0" y="180.5" width="301" height="50"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79S-nA-2gZ">
-                                        <rect key="frame" x="0.0" y="340" width="301" height="46"/>
+                                        <rect key="frame" x="0.0" y="240.5" width="301" height="50.5"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOD-ep-7Ln">
-                                        <rect key="frame" x="0.0" y="425" width="301" height="46"/>
+                                        <rect key="frame" x="0.0" y="301" width="301" height="50"/>
                                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="0.28976094720000001" green="0.38210165499999998" blue="0.2391916811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -371,8 +371,8 @@
                         <color key="backgroundColor" red="0.67540603694483814" green="0.78270682782196976" blue="0.68234553602150172" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="CiX-jR-YPW" firstAttribute="trailing" secondItem="406-A8-Pon" secondAttribute="trailing" constant="37" id="eUU-hD-coI"/>
-                            <constraint firstItem="406-A8-Pon" firstAttribute="top" secondItem="CiX-jR-YPW" secondAttribute="top" id="jDd-li-YPR"/>
-                            <constraint firstItem="CiX-jR-YPW" firstAttribute="bottom" secondItem="406-A8-Pon" secondAttribute="bottom" constant="100" id="jf2-wv-At6"/>
+                            <constraint firstItem="406-A8-Pon" firstAttribute="top" secondItem="CiX-jR-YPW" secondAttribute="top" constant="-40" id="jDd-li-YPR"/>
+                            <constraint firstItem="CiX-jR-YPW" firstAttribute="bottom" secondItem="406-A8-Pon" secondAttribute="bottom" constant="260" id="jf2-wv-At6"/>
                             <constraint firstItem="406-A8-Pon" firstAttribute="leading" secondItem="CiX-jR-YPW" secondAttribute="leading" constant="37" id="sMu-pd-YnM"/>
                         </constraints>
                     </view>

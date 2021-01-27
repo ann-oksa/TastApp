@@ -69,7 +69,6 @@ class GameViewModel {
         game.currentIndexOfCard -= 1
     }
     
-    
     func chooseEnotherCard(){
         if  game.currentIndexOfCard < game.records.count && game.currentIndexOfCard >= 0 {
             game.isCardOpen = false
@@ -80,6 +79,4 @@ class GameViewModel {
             delegate?.makeAlert()
         }
     }
-    
-    
 }

@@ -37,8 +37,6 @@ class TranslationService {
                 
             default: print("class TranslationService -> func transformTranslationToLanguage -> switch translation -> case default: can`t extract translation from \(translation)")
             }
-            
-            // We can`t avoid this yellow warning and optional casting "as? String" because of exсeption "Initializer for conditional binding must have Optional type, not 'String'"
              let translation = TranslationOfWord(word: result, language: .empty)
                 DispatchQueue.main.async {
                     completionHandler(translation.word)

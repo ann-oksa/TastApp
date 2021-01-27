@@ -9,21 +9,17 @@ import Foundation
 
 
 class  HistoryViewModel {
-
+    
     var appState = AppState.shared
-    var records : [Record]
     var chosenRecord: Record?
     var switchingStateOfLanguages = true
     let constants = IdentifiersForSegue()
-    
     var listOfCellViewModel = [CellForRecordViewModel]()
     
-    
     init(records:  [Record]) {
-        self.records = records
         //из этого массива делаем массив CellForRecordViewModel
         for record in records {
-           let cellVM = CellForRecordViewModel(rec: record, englishLanguageOnLeftSide: switchingStateOfLanguages)
+            let cellVM = CellForRecordViewModel(rec: record, englishLanguageOnLeftSide: switchingStateOfLanguages)
             self.listOfCellViewModel.append(cellVM)
         }
     }
@@ -35,13 +31,11 @@ class  HistoryViewModel {
         }
     }
     
-    func removeChosenRecord(rec: Record) {
-        print("InRemoveChosenRecord")
-     //   appState.history.removeRecordFromHistory(record: records[indexPath.row]) //recvm.rec
-      //            self.historyViewModel.records = historyViewModel.appState.getRecords()
-        appState.history.removeRecordFromHistory(record: rec)
-        self.records = appState.getRecords()
-        print("OutRemoveChosenRecord")
+    func removeChosenRecord(indexPath: IndexPath) {
+        let indexOfRecordToRemove = indexPath.row
+        let recordToRemove = listOfCellViewModel[indexOfRecordToRemove].rec 
+        appState.history.removeRecordFromHistory(record: recordToRemove)
+        listOfCellViewModel.remove(at: indexOfRecordToRemove )
     }
     
     func selectRowToGo(indexPath: IndexPath) {
@@ -55,6 +49,5 @@ class  HistoryViewModel {
         case .earliest: listOfCellViewModel.sort(by: {$1.rec.date > $0.rec.date})
         case .latest: listOfCellViewModel.sort(by: {$1.rec.date < $0.rec.date})
         }
-        print(listOfCellViewModel.first?.leftWord)
     }
 }
